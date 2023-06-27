@@ -1,5 +1,5 @@
 # Modern Data Integration Tool
-****
+**A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools**
 
 
 ## Setup

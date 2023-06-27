@@ -1,9 +1,10 @@
+import glob
 import io
 import os
-import setuptools
-import glob
 import sys
-from setuptools import find_packages, find_namespace_packages
+
+import setuptools
+from setuptools import find_namespace_packages, find_packages
 
 if sys.version_info < (3, 8):
     find_namespace_packages()
@@ -34,7 +35,7 @@ data_files_structure = [
 # Package metadata.
 name = "modern_data_integration_tool"
 description = (
-    "A simple util to get a spark and mlflow session objects from an .env file"
+    "A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools"
 )
 # Should be one of:
 # 'Development Status :: 3 - Alpha'
@@ -108,7 +109,7 @@ setuptools.setup(
     py_modules=["main"],
     entry_points={
         "console_scripts": [
-            "modern_data_integration_tool=main:main",
+            "mdit=main:main",
         ],
     },
 )
