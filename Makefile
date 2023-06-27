@@ -7,7 +7,7 @@ install: local_build_and_deploy
 local_build_and_deploy: 
 	pip uninstall mdit -y \
 	&& python setup.py install \
-	&& databricks_session
+	&& modern_data_integration_tool
 
 package_build:
 	python -m build
