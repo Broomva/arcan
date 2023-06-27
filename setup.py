@@ -34,9 +34,7 @@ data_files_structure = [
 
 # Package metadata.
 name = "modern_data_integration_tool"
-description = (
-    "A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools"
-)
+description = "A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools"
 # Should be one of:
 # 'Development Status :: 3 - Alpha'
 # 'Development Status :: 4 - Beta'
