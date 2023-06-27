@@ -5,7 +5,7 @@ working_dir = `pwd`
 install: local_build_and_deploy
 
 local_build_and_deploy: 
-	pip uninstall databricks_session -y \
+	pip uninstall mdit -y \
 	&& python setup.py install \
 	&& databricks_session
 
