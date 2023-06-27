@@ -7,7 +7,7 @@ from setuptools import find_packages, find_namespace_packages
 
 if sys.version_info < (3, 8):
     find_namespace_packages()
-    print("Error: databricks_session does not support this version of Python.")
+    print("Error: modern_data_integration_tool does not support this version of Python.")
     print("Please upgrade to Python 3.8 or higher.")
     sys.exit(1)
 
@@ -21,16 +21,16 @@ def prepare_data_files(directory, extensions):
 
 data_files_structure = [
     (
-        "databricks_session",
+        "modern_data_integration_tool",
         prepare_data_files(
-            "databricks_session",
+            "modern_data_integration_tool",
             ["csv", "sql", "txt", "md", "html", "css", "json", "yaml", "faiss", "pkl"],
         ),
     ),
 ]
 
 # Package metadata.
-name = "databricks_session"
+name = "modern_data_integration_tool"
 description = (
     "A simple util to get a spark and mlflow session objects from an .env file"
 )
@@ -87,9 +87,9 @@ setuptools.setup(
     tests_require=["pytest"],
     test_suite="tests",
     zip_safe=False,
-    url="https://github.com/Broomva/databricks_session",
+    url="https://github.com/Broomva/modern_data_integration_tool",
     package_data={
-        "databricks_session": [
+        "modern_data_integration_tool": [
             "*.json",
             "*.yaml",
             "*.sql",
@@ -106,7 +106,7 @@ setuptools.setup(
     py_modules=["main"],
     entry_points={
         "console_scripts": [
-            "databricks_session=main:main",
+            "modern_data_integration_tool=main:main",
         ],
     },
 )
