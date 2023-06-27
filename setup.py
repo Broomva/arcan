@@ -7,7 +7,9 @@ from setuptools import find_packages, find_namespace_packages
 
 if sys.version_info < (3, 8):
     find_namespace_packages()
-    print("Error: modern_data_integration_tool does not support this version of Python.")
+    print(
+        "Error: modern_data_integration_tool does not support this version of Python."
+    )
     print("Please upgrade to Python 3.8 or higher.")
     sys.exit(1)
 
