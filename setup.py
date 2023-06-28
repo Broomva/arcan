@@ -82,7 +82,7 @@ setuptools.setup(
     packages=find_packages(),
     install_requires=required,
     extras_require=extras,
-    python_requires=">=3.10",
+    python_requires=">=3.8",
     include_package_data=True,
     setup_requires=["setuptools", "wheel"],
     tests_require=["pytest"],
