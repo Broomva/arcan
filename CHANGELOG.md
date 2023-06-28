@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Broomva/arcan/compare/v1.0.0...v1.0.1) (2023-06-28)
+
+
+### Bug Fixes
+
+* **setup:** added entrypoint ([c3328bf](https://github.com/Broomva/arcan/commit/c3328bfea33cd72645d6a752e446ac5c0fb5fafc))
+
 ## [1.0.0](https://github.com/Broomva/arcan/compare/v0.1.1...v1.0.0) (2023-06-28)
 
 
