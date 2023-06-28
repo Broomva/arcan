@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "arcan"
+version = "0.1.0"
+description = "A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools"
+authors = ["Carlos D. Escobar-Valbuena <carlosdavidescobar@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+databricks-session = "^0.2.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
