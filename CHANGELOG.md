@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.0](https://github.com/Broomva/arcan/compare/v0.1.1...v1.0.0) (2023-06-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* renamed to arcan.ai
+
+### Features
+
+* renamed to arcan.ai ([d4b4350](https://github.com/Broomva/arcan/commit/d4b4350afac4db34966af4e08bc54dbe2ee72c16))
+
+
+### Bug Fixes
+
+* **governance:** fixed governance deps ([dba988b](https://github.com/Broomva/arcan/commit/dba988b486fa52dd58ed35c79396f7f48a028d79))
+* **poetry:** refresh poetry setup ([ab8ca0a](https://github.com/Broomva/arcan/commit/ab8ca0a615b539e60ac491ffc462d8386f5689b6))
+* **rename:** updated namings ([77e43ce](https://github.com/Broomva/arcan/commit/77e43cefca11f402b8d9435f5ce36b0663143cf0))
+
 ## [0.1.1](https://github.com/Broomva/modern_data_integration_tool/compare/v0.1.0...v0.1.1) (2023-06-27)
 
 
