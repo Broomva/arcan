@@ -7,7 +7,7 @@
 ### Quick Install
 
 ```shell
-python -m pip install mdit
+python -m pip install arcan
 ```
 
 ### Build from source
@@ -15,13 +15,13 @@ python -m pip install mdit
 Clone the repository
 
 ```shell
-git clone https://github.com/Broomva/mdit.git
+git clone https://github.com/Broomva/arcan.git
 ```
 
 Install the package
 
 ``` shell
-cd mdit && make install
+cd arcan && make install
 ```
 
 ### Build manually
@@ -29,8 +29,8 @@ cd mdit && make install
 After cloning, create a virtual environment
 
 ```shell
-conda create -n mdit python=3.10
-conda activate mdit
+conda create -n arcan python=3.10
+conda activate arcan
 ```
 
 Install the requirements
@@ -66,7 +66,7 @@ databricks_cluster_id=''
 ```
 
 ```python
-import mdit 
+import arcan 
 
 # Create a Spark session
 spark = DatabricksSparkSession().get_session()

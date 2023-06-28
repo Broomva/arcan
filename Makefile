@@ -5,7 +5,7 @@ working_dir = `pwd`
 install: local_build_and_deploy
 
 local_build_and_deploy: 
-	pip uninstall mdit -y \
+	pip uninstall arcan -y \
 	&& python setup.py install \
 	&& modern_data_integration_tool
 

@@ -9,7 +9,7 @@ from setuptools import find_namespace_packages, find_packages
 if sys.version_info < (3, 8):
     find_namespace_packages()
     print(
-        "Error: modern_data_integration_tool does not support this version of Python."
+        "Error: arcan does not support this version of Python."
     )
     print("Please upgrade to Python 3.8 or higher.")
     sys.exit(1)
@@ -24,16 +24,16 @@ def prepare_data_files(directory, extensions):
 
 data_files_structure = [
     (
-        "modern_data_integration_tool",
+        "arcan",
         prepare_data_files(
-            "modern_data_integration_tool",
+            "arcan",
             ["csv", "sql", "txt", "md", "html", "css", "json", "yaml", "faiss", "pkl"],
         ),
     ),
 ]
 
 # Package metadata.
-name = "modern_data_integration_tool"
+name = "arcan"
 description = "A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools"
 # Should be one of:
 # 'Development Status :: 3 - Alpha'
@@ -88,9 +88,9 @@ setuptools.setup(
     tests_require=["pytest"],
     test_suite="tests",
     zip_safe=False,
-    url="https://github.com/Broomva/modern_data_integration_tool",
+    url="https://github.com/Broomva/arcan",
     package_data={
-        "modern_data_integration_tool": [
+        "arcan": [
             "*.json",
             "*.yaml",
             "*.sql",
@@ -107,7 +107,7 @@ setuptools.setup(
     py_modules=["main"],
     entry_points={
         "console_scripts": [
-            "mdit=main:main",
+            "arcan=main:main",
         ],
     },
 )
