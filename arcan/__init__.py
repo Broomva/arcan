@@ -1,2 +1,2 @@
 def main():
-    print("Modern Data Integration Tool is installed")
+    print("Arcan is installed")
