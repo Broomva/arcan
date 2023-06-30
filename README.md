@@ -5,7 +5,7 @@
   </a>
 </p>
 
-<p align="center">Simple Next.js boilerplate that uses <a href="https://fastapi.tiangolo.com/">FastAPI</a> as the API backend.</p>
+<p align="center">Next.js & FastAPI Vercel Arcan Deployment. Check out source template at <a href="https://github.com/digitros/nextjs-fastapi">Vercel Template</a>.</p>
 
 <br/>
 
@@ -88,7 +88,6 @@ mlflow_session = DatabricksMLFlowSession().get_session()
 
 
 
-
 ## Introduction
 
 This is a hybrid Next.js + Python app that uses Next.js as the frontend and FastAPI as the API backend. One great use case of this is to write Next.js apps that use Python AI libraries on the backend.
@@ -156,3 +155,7 @@ To learn more about Next.js, take a look at the following resources:
 - [FastAPI Documentation](https://fastapi.tiangolo.com/) - learn about FastAPI features and API.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+### Attribution
+This is a forked implementation for the Github repositories. Check out the attribution list:
+https://github.com/digitros/nextjs-fastapi
