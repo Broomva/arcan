@@ -4,7 +4,7 @@ from modal import Stub, web_endpoint
 from modal import Image, Stub, web_endpoint
 import toml, os
 
-__version__ = "1.1.1"
+__version__ = "1.2.0"
 
 
 # %%

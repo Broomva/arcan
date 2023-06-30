@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/Broomva/arcan/compare/v1.1.1...v1.2.0) (2023-06-30)
+
+
+### Features
+
+* **api:** added modal api ([b927669](https://github.com/Broomva/arcan/commit/b927669ae38a1b491122a99abf1b12ce18306080))
+
+
+### Bug Fixes
+
+* **build:** fixed build and deploy ([b78d1c0](https://github.com/Broomva/arcan/commit/b78d1c0d999194dac22069fb84ba86fd86c47919))
+* **build:** fixed build using modal deployment ([b7f9001](https://github.com/Broomva/arcan/commit/b7f900121ecd460e1ef3a8626e533d6b494f8dcb))
+
 ## [1.1.1](https://github.com/Broomva/arcan/compare/v1.1.0...v1.1.1) (2023-06-30)
 
 
