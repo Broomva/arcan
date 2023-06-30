@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/Broomva/arcan/compare/v1.2.2...v1.2.3) (2023-06-30)
+
+
+### Bug Fixes
+
+* **examples:** add examples page ([a3ede45](https://github.com/Broomva/arcan/commit/a3ede45bb00a450f619f94f291d03348ea686217))
+
 ## [1.2.2](https://github.com/Broomva/arcan/compare/v1.2.1...v1.2.2) (2023-06-30)
 
 
