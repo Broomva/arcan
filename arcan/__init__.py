@@ -1,8 +1,6 @@
 # %%
-from fastapi import FastAPI
 from modal import Stub, web_endpoint
 from modal import Image, Stub, web_endpoint
-import toml, os
 
 __version__ = "1.2.0"
 
@@ -12,30 +10,34 @@ __version__ = "1.2.0"
 def get_arcan_version():
     try:
         import arcan
-        return(arcan.__version__)
+
+        return arcan.__version__
     except Exception as e:
         print(e)
         return f"No arcan package is installed"
 
 
 # %%
-image = Image.debian_slim().pip_install("fastapi", "uvicorn", "databricks_session", "arcan")
-#api = FastAPI()
+image = Image.debian_slim().pip_install(
+    "fastapi", "uvicorn", "databricks_session", "arcan"
+)
+# api = FastAPI()
 stub = Stub(
     name="arcan",
     image=image,
 )
 
+
 @stub.function()
 @web_endpoint(method="GET")
-#@api.get("/")
+# @api.get("/")
 def entrypoint():
     return {"message": "Arcan is running"}
 
 
 @stub.function()
 @web_endpoint(method="GET")
-#@api.get("/api/version")
+# @api.get("/api/version")
 def version():
     print("Arcan is installed")
     # return the installed version of Arcan package from the pyproject.toml file
@@ -44,4 +46,3 @@ def version():
 
 
 # %%
-
