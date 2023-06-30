@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/Broomva/arcan/compare/v1.1.0...v1.1.1) (2023-06-30)
+
+
+### Bug Fixes
+
+* **requirements:** removed databricks_session req ([52e97ce](https://github.com/Broomva/arcan/commit/52e97cecabdeb0df6070925829ba088c63af68b9))
+* **yarn:** fixed deployment ([b6a5995](https://github.com/Broomva/arcan/commit/b6a5995c5118db947ddaaeae947f56d400e1514b))
+
 ## [1.1.0](https://github.com/Broomva/arcan/compare/v1.0.1...v1.1.0) (2023-06-30)
 
 
