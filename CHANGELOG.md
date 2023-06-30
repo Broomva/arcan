@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/Broomva/arcan/compare/v1.2.0...v1.2.1) (2023-06-30)
+
+
+### Bug Fixes
+
+* **init:** removed unused import, changed svg font ([3e0ab60](https://github.com/Broomva/arcan/commit/3e0ab607308cd901a8f5daa25ef5b3c96386aa32))
+* **license:** fixed licensing ([b09251a](https://github.com/Broomva/arcan/commit/b09251a7421519ac0247659be8b630fd1b23bfb5))
+
 ## [1.2.0](https://github.com/Broomva/arcan/compare/v1.1.1...v1.2.0) (2023-06-30)
 
 
