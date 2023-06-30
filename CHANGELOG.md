@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/Broomva/arcan/compare/v1.0.1...v1.1.0) (2023-06-30)
+
+
+### Features
+
+* **next:** added nextjs and fastapi deployment template ([6139ffa](https://github.com/Broomva/arcan/commit/6139ffad3ec56510f807575841767504aae0ae49))
+
+
+### Bug Fixes
+
+* **docs:** fixed readme info ([531c2e4](https://github.com/Broomva/arcan/commit/531c2e477c91889e1cfe23e94b95b934281fbee3))
+* **funding:** fixed typo in funding.yml ([1544b0e](https://github.com/Broomva/arcan/commit/1544b0e53394ad83145ffcc689a90ee8d71c3037))
+* **yarn:** fixed yarn build and install ([e68bf6c](https://github.com/Broomva/arcan/commit/e68bf6c5aaf49beba38c8b17904513d27b65c078))
+
 ## [1.0.1](https://github.com/Broomva/arcan/compare/v1.0.0...v1.0.1) (2023-06-28)
 
 
