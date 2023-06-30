@@ -1,4 +1,4 @@
-def create_func_from_string(
+def create_function_from_string(
     path: str = "",
     func_code_str: str = "def process(dataframe, spark, params):\n    return dataframe",
 ):
