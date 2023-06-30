@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.4](https://github.com/Broomva/arcan/compare/v1.2.3...v1.2.4) (2023-06-30)
+
+
+### Bug Fixes
+
+* **api:** created base transformation function ([b37b613](https://github.com/Broomva/arcan/commit/b37b613da8251cebe7770eddde9e3ba8926b3aa9))
+* **arcan:** added base transformation ([4d48b95](https://github.com/Broomva/arcan/commit/4d48b95ea6993ca889dfe871caa52289deb39914))
+
 ## [1.2.3](https://github.com/Broomva/arcan/compare/v1.2.2...v1.2.3) (2023-06-30)
 
 
