@@ -9,10 +9,13 @@ local_deploy: build && deploy
 build:
 	black . \
 	&& poetry build \
-	&& yarn build
+	&& poetry export -f requirements.txt --output requirements.txt \
+	&& poetry install \
+	&& yarn build \
+	&& yarn install
 
 deploy:
-	poetry install \
+	\
 	&& yarn deploy
 
 local_build_and_deploy: 
