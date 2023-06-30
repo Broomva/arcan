@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/Broomva/arcan/compare/v1.2.4...v1.2.5) (2023-06-30)
+
+
+### Bug Fixes
+
+* **api:** renamed processing core method ([5a0e9e6](https://github.com/Broomva/arcan/commit/5a0e9e62e2bc1fd03f8e99ad94cd0038f36274fa))
+
 ## [1.2.4](https://github.com/Broomva/arcan/compare/v1.2.3...v1.2.4) (2023-06-30)
 
 
