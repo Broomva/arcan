@@ -12,10 +12,12 @@ packages = [{include = "api/arcan"}]
 python = "^3.10"
 fastapi = "^0.98.0"
 uvicorn = "^0.22.0"
+modal-client = "^0.49.2509"
 
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
+ipykernel = "^6.23.3"
 
 [build-system]
 requires = ["poetry-core"]

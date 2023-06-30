@@ -3,7 +3,6 @@
   "version": "1.0.1",
   "private": false,
   "scripts": {
-    "fastapi-dev": "poetry install && python -m uvicorn api.index:app --reload",
     "next-dev": "next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
     "build": "next build",
