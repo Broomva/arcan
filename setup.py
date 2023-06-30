@@ -64,10 +64,10 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     author="Carlos D. Escobar-Valbuena",
     author_email="carlosdavidescobar@gmail.com",
-    license="MIT",
+    license="arcan.ai Non-Commercial Open Source License",
     classifiers=[
         release_status,
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: arcan.ai Non-Commercial Open Source License",
         "Operating System :: OS Independent",
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
