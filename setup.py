@@ -8,9 +8,7 @@ from setuptools import find_namespace_packages, find_packages
 
 if sys.version_info < (3, 8):
     find_namespace_packages()
-    print(
-        "Error: arcan does not support this version of Python."
-    )
+    print("Error: arcan does not support this version of Python.")
     print("Please upgrade to Python 3.8 or higher.")
     sys.exit(1)
 
