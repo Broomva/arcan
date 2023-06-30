@@ -4,6 +4,17 @@ working_dir = `pwd`
 
 install: local_build_and_deploy
 
+local_deploy: build && deploy
+
+build:
+	black . \
+	&& poetry build \
+	&& yarn build
+
+deploy:
+	poetry install \
+	&& yarn deploy
+
 local_build_and_deploy: 
 	pip uninstall arcan -y \
 	&& python setup.py install \
