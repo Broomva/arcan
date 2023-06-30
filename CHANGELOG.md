@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/Broomva/arcan/compare/v1.2.1...v1.2.2) (2023-06-30)
+
+
+### Bug Fixes
+
+* **next:** added about page. added modal api routes for /api and /version ([e7d5ebf](https://github.com/Broomva/arcan/commit/e7d5ebfca187208d0527256336bbe9d8bf87ae37))
+
 ## [1.2.1](https://github.com/Broomva/arcan/compare/v1.2.0...v1.2.1) (2023-06-30)
 
 
