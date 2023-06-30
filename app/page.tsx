@@ -25,7 +25,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          By &apos;
+          By
           <Image
             src="/arcan.svg"
             alt="arcan logo"

@@ -5,10 +5,13 @@ description = "A multiheaded modern data bridging package based on pipeline mani
 authors = ["Carlos D. Escobar-Valbuena <carlosdavidescobar@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "api/arcan"}]
+
 
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.98.0"
+uvicorn = "^0.22.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -19,4 +22,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-arcan = 'main:main'
+arcan = 'api.arcan:main'
