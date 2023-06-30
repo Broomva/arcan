@@ -2,7 +2,7 @@
 from modal import Stub, web_endpoint
 from modal import Image, Stub, web_endpoint
 
-__version__ = "1.2.5"
+__version__ = "1.3.0"
 
 
 # %%

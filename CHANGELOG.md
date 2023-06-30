@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Broomva/arcan/compare/v1.2.5...v1.3.0) (2023-06-30)
+
+
+### Features
+
+* **app:** added login and dashboard pages from https://github.com/dha-stix/instock-app ([163a118](https://github.com/Broomva/arcan/commit/163a1188ba9138e67e38624b808b576dde1b8165))
+
 ## [1.2.5](https://github.com/Broomva/arcan/compare/v1.2.4...v1.2.5) (2023-06-30)
 
 
