@@ -3,11 +3,12 @@
   "version": "1.0.1",
   "private": false,
   "scripts": {
-    "fastapi-dev": "poetry install && python -m uvicorn api.index:app --reload",
+    "fastapi-dev": "poetry install && python -m modal serve arcan",
     "next-dev": "next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
     "build": "next build",
     "start": "next start",
+
     "lint": "next lint"
   },
   "dependencies": {

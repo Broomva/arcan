@@ -1,44 +1,41 @@
 # %%
 from fastapi import FastAPI
-#from modal import Stub, web_endpoint
-#from modal import Image, Stub, web_endpoint
+from modal import Stub, web_endpoint
+from modal import Image, Stub, web_endpoint
 import toml, os
+
+__version__ = "1.1.1"
 
 
 # %%
 # %%
 def get_arcan_version():
     try:
-        package_root = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "..", "..")
-        )
-        print(package_root)
-        with open(os.path.join(package_root, "pyproject.toml"), "r") as f:
-            pyproject = toml.load(f)
-            return pyproject["tool"]["poetry"]["version"]
+        import arcan
+        return(arcan.__version__)
     except Exception as e:
         print(e)
-        return f"No pyproject.toml file found {e}"
+        return f"No arcan package is installed"
 
 
 # %%
-# image = Image.debian_slim().pip_install("fastapi", "uvicorn", "databricks_session")
-api = FastAPI()
-# stub = Stub(
-#     name="arcan",
-#     image=image,
-# )
+image = Image.debian_slim().pip_install("fastapi", "uvicorn", "databricks_session", "arcan")
+#api = FastAPI()
+stub = Stub(
+    name="arcan",
+    image=image,
+)
 
-# @stub.function()
-# @web_endpoint(method="GET")
-@api.get("/")
+@stub.function()
+@web_endpoint(method="GET")
+#@api.get("/")
 def entrypoint():
     return {"message": "Arcan is running"}
 
 
-# @stub.function()
-# @web_endpoint(method="GET")
-@api.get("/api/version")
+@stub.function()
+@web_endpoint(method="GET")
+#@api.get("/api/version")
 def version():
     print("Arcan is installed")
     # return the installed version of Arcan package from the pyproject.toml file

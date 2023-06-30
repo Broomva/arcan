@@ -7,7 +7,6 @@ license = "MIT"
 readme = "README.md"
 packages = [
     {include = "arcan"},
-    {include = "api"},
     {include = "main.py"}
 ]
 
