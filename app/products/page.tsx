@@ -117,7 +117,7 @@ export default function Home() {
                             {products?.map((product: Product) => (
                                 <tr key={product.id} className="text-sm text-gray-500">
                                 <td>{product.name}</td>
-                                <td>{`₦${product.price.toLocaleString()}`}</td>
+                                <td>{product.price ? `$ ${product.price.toLocaleString()}` : ''}</td>
                                 <td>{product.category}</td>
                                     <td>
                                         <MdDeleteForever
@@ -129,8 +129,6 @@ export default function Home() {
 
                             </tr>
                             ))}
-                          
-                            
                             
                         </tbody>
                     </table>

@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Categories | arcan',
-  description: 'A stock taking application for shopping malls and stores.',
+  description: 'arcan categories',
 }
 
 export default function RootLayout({

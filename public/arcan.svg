@@ -1,3 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" baseProfile="full" width="300px" height="200px" viewBox="0 0 300 200" preserveAspectRatio="xMidYMid meet" id="svg_document" style="zoom: 1;"><!-- Created with macSVG - https://macsvg.org/ - https://github.com/dsward2/macsvg/ --><title id="svg_document_title">arcan.svg</title><defs id="svg_document_defs"></defs><g id="main_group"><text id="sample_text_element" style="outline-style:none;" xml:space="preserve" x="149px" text-rendering="geometricPrecision" font-family="STHeitiSC-Light" y="136px" fill="black" font-size="100px" transform="" text-anchor="middle">arcan</text></g></svg>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <text transform="matrix(2.84274 0 0 2.69338 -1213.37 -147.061)" stroke="#000" font-weight="bold" font-style="normal" xml:space="preserve" text-anchor="start" font-family="'Urbanist'" font-size="90" id="svg_1" y="187.55365" x="456.38018" stroke-width="0" fill="#000000">arcan</text>
+ </g>
+</svg>

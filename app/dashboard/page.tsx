@@ -40,16 +40,16 @@ export default function Dashboard() {
 
     if(!user?.email) return <Loading/>
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className='flex w-full min-h-[100vh] relative'>
           <SideNav/>
             
-            <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+            <div className='md:w-[85%] w-full py-4 px-6 min-h-[100vh] bg-[#f4f4f6]'>
                 <Header title='Dashboard' />
                
                 <div className='flex items-center md:flex-row flex-col justify-between w-full md:space-x-4 mb-8'>
                     <div className='bg-white md:w-1/3 w-full h-[200px] shadow rounded p-3 hover:shadow-lg md:my-auto my-2'>
                         <h3 className='text-[#9AA8BD] mb-10'>Total Sales</h3>
-                        <h2 className='text-center font-bold text-3xl text-[#60A9CD]'>₦{totalSales.toLocaleString()}</h2>
+                        <h2 className='text-center font-bold text-3xl text-[#60A9CD]'>$ {totalSales.toLocaleString()}</h2>
                     </div>
                     <div className='bg-white md:w-1/3 w-full h-[200px] shadow rounded p-3 hover:shadow-lg md:my-auto my-2'>
                         <h3 className='text-[#9AA8BD] mb-10'>Products</h3>
