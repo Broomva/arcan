@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.1](https://github.com/Broomva/arcan/compare/v1.3.0...v1.3.1) (2023-07-01)
+
+
+### Bug Fixes
+
+* **app:** fix auth layout ([88c5424](https://github.com/Broomva/arcan/commit/88c542438ec881090a5c44968b907541bbe2f37b))
+* **app:** fix page.tsx ([f2ba958](https://github.com/Broomva/arcan/commit/f2ba95841c173617d9787a71c0bf8dbbfb312e83))
+* **app:** reordered cards ([d7f6d10](https://github.com/Broomva/arcan/commit/d7f6d100c60116a285e2c4702a9b90d6609ba16d))
+* **layout:** testing fe ([9e35a03](https://github.com/Broomva/arcan/commit/9e35a03b1068bdfa8bff26f8b7aa5a57ba0c5fa2))
+
 ## [1.3.0](https://github.com/Broomva/arcan/compare/v1.2.5...v1.3.0) (2023-06-30)
 
 
