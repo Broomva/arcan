@@ -6,6 +6,10 @@ install: local_build_and_deploy
 
 local_deploy: build && deploy
 
+rerun: 
+	make build \
+	&& yarn dev 
+
 build:
 	black . \
 	&& poetry build \
@@ -14,9 +18,7 @@ build:
 	&& yarn build \
 	&& yarn install
 
-deploy:
-	\
-	&& yarn deploy
+deploy: yarn deploy
 
 local_build_and_deploy: 
 	pip uninstall arcan -y \
