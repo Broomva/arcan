@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.4](https://github.com/Broomva/arcan/compare/v1.3.3...v1.3.4) (2023-07-01)
+
+
+### Bug Fixes
+
+* **app:** fixed arcan_report ([eb8aa59](https://github.com/Broomva/arcan/commit/eb8aa597691edb8d4cfecbf310cd2f3e7e28401f))
+* **funding:** fix funding link ([601786c](https://github.com/Broomva/arcan/commit/601786c7c46f1a6367fc29736abc671f3bfeb4f1))
+* **funding:** fix patreon funding link ([#1](https://github.com/Broomva/arcan/issues/1)) ([fb88b6a](https://github.com/Broomva/arcan/commit/fb88b6a92fb84bedd9e0dcfca96fcf88b5d29df9))
+
 ## [1.3.3](https://github.com/Broomva/arcan/compare/v1.3.2...v1.3.3) (2023-07-01)
 
 
