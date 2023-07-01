@@ -40,10 +40,10 @@ export default function Dashboard() {
 
     if(!user?.email) return <Loading/>
     return (
-        <main className='flex w-full min-h-[100vh] relative'>
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
           <SideNav/>
             
-            <div className='md:w-[85%] w-full py-4 px-6 min-h-[100vh] bg-[#f4f4f6]'>
+            <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
                 <Header title='Dashboard' />
                
                 <div className='flex items-center md:flex-row flex-col justify-between w-full md:space-x-4 mb-8'>

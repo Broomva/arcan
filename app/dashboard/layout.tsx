@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Dashboard | arcan',
-  description: 'A stock taking application for shopping malls and stores.',
+  description: 'a multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools',
 }
 
 export default function RootLayout({
