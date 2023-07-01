@@ -23,11 +23,11 @@ export default function Home() {
 
           <a
             className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://github.com/Broomva/arcan/"
+            href="/auth"
             target="_blank"
             rel="noopener noreferrer"
           >
-            By
+            Login 
             <Image
               src="/arcan.svg"
               alt="arcan logo"
@@ -69,7 +69,7 @@ export default function Home() {
             </p>
           </a>
 
-          {/* <a
+          <a
             href="/about"
             className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             target="_blank"
@@ -84,7 +84,7 @@ export default function Home() {
             <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
               About this project
             </p>
-          </a> */}
+          </a>
 
           <a
             href="/examples"
@@ -122,7 +122,7 @@ export default function Home() {
           </a>
 
 
-          <a
+          {/* <a
             href="/auth"
             className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             target="_blank"
@@ -137,7 +137,7 @@ export default function Home() {
             <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
               Enter your account here
             </p>
-          </a>
+          </a> */}
 
         </div>
       </main>
