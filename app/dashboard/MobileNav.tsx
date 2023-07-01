@@ -1,4 +1,4 @@
-import { LogOut } from "@/utils";
+import { LogOut } from "@/app/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AiFillCloseCircle } from "react-icons/ai";

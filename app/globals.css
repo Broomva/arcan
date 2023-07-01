@@ -56,7 +56,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-.dim {
+/* .dim {
 	background-color: rgba(0, 0, 0, 0.8);
 }
 .ReactCollapse--collapse {
@@ -64,17 +64,17 @@ body {
 }
 tr,
 td,
-/* th {
+th {
 	border: 1px solid #ddd;
 	border-radius: 2px;
 	padding: 10px;
 	text-align: left;
 	background-color: #fff;
-} */
+}
 
 table {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 th {
 	background-color: #93c5fd;
-}
+} */

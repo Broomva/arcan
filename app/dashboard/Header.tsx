@@ -1,5 +1,5 @@
 import { ImExit } from "react-icons/im"
-import { LogOut } from "@/utils"
+import { LogOut } from "@/app/utils"
 import { useRouter } from "next/navigation"
 import { HiMenuAlt2 } from "react-icons/hi"
 import { useState } from "react"

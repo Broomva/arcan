@@ -3,11 +3,11 @@ import SideNav from "../dashboard/SideNav"
 import { MdDeleteForever } from "react-icons/md"
 import Header from "../dashboard/Header"
 import React, { FormEventHandler, useState, useCallback, useEffect } from "react"
-import { auth } from '@/firebase'
+import { auth } from '@/app/firebase'
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from 'next/navigation'
 import Loading from "../dashboard/Loading"
-import { addProduct, deleteProduct, getCategories, getProducts, User, Item } from "@/utils"
+import { addProduct, deleteProduct, getCategories, getProducts, User, Item } from "@/app/utils"
 
 interface Product {
     id: string,

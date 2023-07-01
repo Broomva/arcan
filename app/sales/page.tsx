@@ -5,11 +5,11 @@ import { BsFillPrinterFill, BsFillCaretDownFill, BsFillCaretUpFill } from "react
 // import "react-datepicker/dist/react-datepicker.css";
 import Header from "../dashboard/Header";
 import React, { useState, useCallback, useEffect } from "react"
-import { auth } from '@/firebase'
+import { auth } from '@/app/firebase'
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from 'next/navigation'
 import Loading from "../dashboard/Loading"
-import { Sales, getSales, getSalesForDay } from "@/utils";
+import { Sales, getSales, getSalesForDay } from "@/app/utils";
 // import { Collapse } from "react-collapse";
 
 interface User {

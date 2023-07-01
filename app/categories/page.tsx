@@ -2,12 +2,12 @@
 import Header from "../dashboard/Header"
 import SideNav from "../dashboard/SideNav"
 import { FormEventHandler, useState, useCallback, useEffect } from "react"
-import { auth } from '@/firebase'
+import { auth } from '@/app/firebase'
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from 'next/navigation'
 import Loading from "../dashboard/Loading"
 import { MdDeleteForever } from "react-icons/md"
-import { deleteCategory, getCategories, addCategory } from '@/utils';
+import { deleteCategory, getCategories, addCategory } from '@/app/utils';
 
 interface User {
     email: string | null,

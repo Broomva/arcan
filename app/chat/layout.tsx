@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Products | arcan',
-  description: 'arcan products',
+  title: 'Chat | arcan',
+  description: 'Arcan Chat Session',
 }
 
 export default function RootLayout({
