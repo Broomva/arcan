@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.3](https://github.com/Broomva/arcan/compare/v1.3.2...v1.3.3) (2023-07-01)
+
+
+### Bug Fixes
+
+* **app:** fix firebase import and app routing. Added template for login page (auth) ([1b73193](https://github.com/Broomva/arcan/commit/1b731936dc4fd6ce4feaed4eb426b7ae0ac02920))
+* **funding:** fixed patreon link ([c4ef767](https://github.com/Broomva/arcan/commit/c4ef76730121a94f8ca671dcbdbb69bcec85bf11))
+
 ## [1.3.2](https://github.com/Broomva/arcan/compare/v1.3.1...v1.3.2) (2023-07-01)
 
 
