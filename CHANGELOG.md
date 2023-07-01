@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/Broomva/arcan/compare/v1.3.1...v1.3.2) (2023-07-01)
+
+
+### Bug Fixes
+
+* **funding:** updated funding ([92c1fc4](https://github.com/Broomva/arcan/commit/92c1fc4cab32f6cb98a576a5ebee18fb681370eb))
+
 ## [1.3.1](https://github.com/Broomva/arcan/compare/v1.3.0...v1.3.1) (2023-07-01)
 
 
