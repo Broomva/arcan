@@ -18,7 +18,8 @@ build:
 	&& yarn build \
 	&& yarn install
 
-deploy: yarn deploy
+deploy: 
+	modal deploy arcan
 
 local_build_and_deploy: 
 	pip uninstall arcan -y \
