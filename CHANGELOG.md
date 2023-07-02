@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.5](https://github.com/Broomva/arcan/compare/v1.3.4...v1.3.5) (2023-07-02)
+
+
+### Bug Fixes
+
+* **readme:** updated readme ([051ccbe](https://github.com/Broomva/arcan/commit/051ccbe3c909f0caa2463eedfda46a773c828fbf))
+* **readme:** updated readme heading ([2e558f9](https://github.com/Broomva/arcan/commit/2e558f956d16ac23a03e3f0cb5e2f742521cc0fb))
+* various updates to styles and routes ([dd80826](https://github.com/Broomva/arcan/commit/dd8082667acda3394c0692020ed42b731d19444f))
+
 ## [1.3.4](https://github.com/Broomva/arcan/compare/v1.3.3...v1.3.4) (2023-07-01)
 
 
