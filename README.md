@@ -1,4 +1,4 @@
-# Arcan: Your Data Bridging Concierge
+# Arcan: AI Driven Data Pipeline Orchestration
 
 <p align="center">
   <a href="https://arcanapp.io">
