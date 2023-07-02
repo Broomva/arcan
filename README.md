@@ -27,7 +27,7 @@ Leverage AI and pipeline manifests to integrate diverse data stack tools with ea
 ### Build from Source
 
     git clone https://github.com/Broomva/arcan.git
-    cd arcan &&  make install
+    cd arcan &&  make build
 
 ### Manual Build
 

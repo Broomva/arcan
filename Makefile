@@ -23,8 +23,8 @@ deploy:
 
 local_build_and_deploy: 
 	pip uninstall arcan -y \
-	&& python setup.py install \
-	&& modern_data_integration_tool
+	&& poetry install \
+	&& arcan
 
 package_build:
 	python -m build

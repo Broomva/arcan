@@ -4,19 +4,12 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination:
-          process.env.NODE_ENV === "development"
-            ? "https://broomva--arcan-entrypoint.modal.run/:path*"
-            : "/api/",
+        destination: "https://broomva--arcan-entrypoint.modal.run/:path*",
       },
       {
         source: "/version/:path*",
-        destination:
-          process.env.NODE_ENV === "development"
-            ? "https://broomva--arcan-version.modal.run/:path*"
-            : "/version/",
-      },
-     
+        destination: "https://broomva--arcan-version.modal.run/:path*",
+      }     
     ];
   },
 };
@@ -24,15 +17,15 @@ const nextConfig = {
 module.exports = nextConfig;
 
 
-module.exports = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'tailwindui.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
-}
+// module.exports = {
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: 'https',
+//         hostname: 'tailwindui.com',
+//         port: '',
+//         pathname: '/**',
+//       },
+//     ],
+//   },
+// }
