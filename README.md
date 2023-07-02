@@ -1,193 +1,83 @@
+# Arcan: Your Data Bridging Concierge
+
 <p align="center">
-  <a href="https://vercel.com/broomva/arcan">
-    <img src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="96">
-    <h3 align="center">arcan</h3>
+  <a href="https://arcanapp.io">
+    <img src="public/arcan.png" height="96">
+    <h3 align="center"></h3>
   </a>
 </p>
 
-<p align="center">Next.js & FastAPI Vercel Arcan Deployment. Check out source template at <a href="https://github.com/digitros/nextjs-fastapi">Vercel Template</a>.</p>
+<p align="center">Your data bridging concierge. Leverage AI to integrate diverse big and small data stack tools with ease. Visit our live demo at <a href="https://arcanapp.io/">arcanapp.io</a>.</p>
 
 <br/>
 
-# Arcan
-**A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools**
+# Introduction
+Arcan is an innovative open-source solution designed to bridge modern and legacy data stack tools through a multiheaded package based on a smart pipeline generation and orchestration. Leveraging a hybrid Next.js + Python app, arcan provides a user-friendly interface for you to request data pipelines creation using natural language, Arcan simplifies and enhances your data operations.
 
+## Overview
 
-## Setup
+Leverage AI and pipeline manifests to integrate diverse data stack tools with ease. Check out our live demo at [arcanapp.io](https://arcanapp.io/).
+
+## Installation
 
 ### Quick Install
 
-```shell
-python -m pip install arcan
-```
+    python -m pip install arcan
 
-### Build from source
+### Build from Source
 
-Clone the repository
+    git clone https://github.com/Broomva/arcan.git
+    cd arcan &&  make install
 
-```shell
-git clone https://github.com/Broomva/arcan.git
-```
+### Manual Build
 
-Install the package
+    conda create -n arcan python=3.10
+    conda activate arcan
+    pip install -r requirements.txt
+    python setup.py install
 
-``` shell
-cd arcan && make install
-```
+## Building the Next.js App
 
-### Build manually
+To clone the repository and create the Next.js app, you can use the following commands:
 
-After cloning, create a virtual environment
+    npx create-next-app arcan --example "https://github.com/Broomva/arcan"
 
-```shell
-conda create -n arcan python=3.10
-conda activate arcan
-```
+Once you have cloned the repository and created the app, install the dependencies:
 
-Install the requirements
+    yarn install
 
-```shell
-pip install -r requirements.txt
-```
+After that, you can run the development server:
 
-Run the python installation
+    yarn dev
+    # or
+    make rerun
 
-```shell
-python setup.py install
-```
-
-## Usage
-
-The deployment requires a .env file created under local folder:
-
-```shell
-touch .env
-```
-
-It should have a schema like this:
-
-```toml
-databricks_experiment_name=''
-databricks_experiment_id=''
-databricks_host=''
-databricks_token=''
-databricks_username=''
-databricks_password=''
-databricks_cluster_id=''
-```
-
-```python
-import arcan 
-
-# Create a Spark session
-spark = DatabricksSparkSession().get_session()
-
-# Connect to MLFLow Artifact Server
-mlflow_session = DatabricksMLFlowSession().get_session()
-```
+You can then view your application by opening [http://localhost:3000](http://localhost:3000) with your browser.
 
 
+## Subscription Model
 
-## Introduction
+Arcan operates on a freemium/subscription model. While the open-source code can be deployed in your own environment free of charge, we offer several subscription tiers for access to premium features such as enhanced support, more extensive pipeline manifests, and additional tools. Visit our [Pricing Page](https://arcanapp.io/pricing) for more details.
 
-This is a hybrid Next.js + Python app that uses Next.js as the frontend and FastAPI as the API backend. One great use case of this is to write Next.js apps that use Python AI libraries on the backend.
+## Live Demo & Deployment
 
-## How It Works
+Check out our live demo at [arcanapp.io](https://arcanapp.io/).
 
-The Python/FastAPI server is mapped into to Next.js app under `/api/`.
+To deploy Arcan on your own, you can clone & deploy it with one click:
 
-This is implemented using [`next.config.js` rewrites](https://github.com/digitros/arcan/blob/main/next.config.js) to map any request to `/api/:path*` to the FastAPI API, which is hosted in the `/api` folder.
 
-On localhost, the rewrite will be made to the `127.0.0.1:8000` port, which is where the FastAPI server is running.
-
-In production, the FastAPI server is hosted as [Python serverless functions](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python) on Vercel.
-
-## Demo
-
-https://arcan-starter.vercel.app/
-
-## Deploy Your Own
-
-You can clone & deploy it to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdigitros%2Farcan%2Ftree%2Fmain)
-
-## Developing Locally
-
-You can clone & create this repo with the following command
-
-```bash
-npx create-next-app arcan --example "https://github.com/digitros/arcan"
-```
-
-## Getting Started
-
-First, install the dependencies:
-
-```bash
-npm install
-# or
-yarn
-# or
-pnpm install
-```
-
-Then, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-The FastApi server will be running on [http://127.0.0.1:8000](http://127.0.0.1:8000) – feel free to change the port in `package.json` (you'll also need to update it in `next.config.js`).
-
-#"fastapi-dev": "poetry install && python -m uvicorn api.index:app --reload",
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBroomva%2Farcan%2Ftree%2Fmain)
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies we use, check out:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [FastAPI Documentation](https://fastapi.tiangolo.com/) - learn about FastAPI features and API.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Attribution
 
+Arcan builds upon the hard work of others. Here are the original repositories we leveraged:
 
-
-### The application does the following: 
-- authenticates users via Email and Password with Firebase,
-- allows a user (cashier or store owner) to create various categories for the products,
-- add and delete products from the application, and
-- record and track sales made daily.
-
-<img width="1280" alt="Sales Management Dashboard" src="https://github.com/dha-stix/arcan-app/assets/67129211/4f963dcd-f81d-4c88-8c9d-3ac05b132ffa">
-
-
-## Live Demo
-- [View Live Version](https://arcan-two.vercel.app/)
-- [YouTube Demo](https://www.youtube.com/watch?v=Vq1xlL1g9eY)
-
-## How-to Guide
-[Read article on DEV](https://dev.to/arshadayvid/how-i-built-a-sales-management-app-with-nextjs-13-typescript-and-firebase-16cb)
-
-## Installation
-- Clone the project repository. Don't forget to star the repo 😉
-- Run `npm install` to install its dependencies.
-- Start the development server by running `npm run dev`
-
-## Tools
-- [NextJS 13](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Firebase](https://firebase.google.com)
-- [React Icons](https://react-icons.github.io/react-icons)
-
-### Attribution
-This is a forked implementation for the Github repositories. Check out the attribution list:
-https://github.com/digitros/nextjs-fastapi
-https://github.com/dha-stix/instock-app
+- [NextJS FastAPI Template](https://github.com/digitros/nextjs-fastapi)
+- [InStock App](https://github.com/dha-stix/instock-app)
