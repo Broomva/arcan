@@ -1,31 +1,32 @@
 "use client"
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth } from "@/app/config/firebase";
-import { errorMessage, successMessage } from "@/app/helpers/ui";
+import { app, auth } from "@/app/auth/config/firebase";
+import { errorMessage, successMessage } from "@/app/misc/helpers/ui";
 import { getAuth, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
-
-   //  const [user, loading, error] = useAuthState(auth);
-
-    // if(loading) return <Loading/>
-
-    // else if (user) {
-    //     // user is already logged in, redirect to home page
-    //     router.push('/dashboard');
-    // }
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 
-export const FirebaseAuthProvider = (auth) => {
-    return {
+
+export const FirebaseAuthProvider = {
+        popupMode: true,
         signInFlow: 'popup',
-        signInSuccessUrl: '/dashboard',
+        signInSuccessUrl: '/admin_pane/dashboard',
+        siteName: 'arcanapp.io',
         //tosUrl: '/terms-of-service',
         privacyPolicyUrl: '/auth/privacy_policy',
         signInOptions: [
             GoogleAuthProvider.PROVIDER_ID,
-            GithubAuthProvider.PROVIDER_ID,
+            // GithubAuthProvider.PROVIDER_ID,
         ]
     }   
+
+// export const auth = app.auth();
+
+export const FirebaseAuthPane = () => {
+    return (
+        <StyledFirebaseAuth uiConfig={FirebaseAuthProvider} firebaseAuth={auth} />
+    );
 }
 
 export const LoginUser = (email: string, password: string, router: AppRouterInstance) => {
@@ -33,7 +34,7 @@ export const LoginUser = (email: string, password: string, router: AppRouterInst
         .then((userCredential) => {
             const user = userCredential.user;
             successMessage("Authentication successful 🎉");
-            router.push("/dashboard");
+            router.push("/admin_pane/dashboard");
         })
         .catch((error) => {
             console.error(error);
@@ -41,13 +42,3 @@ export const LoginUser = (email: string, password: string, router: AppRouterInst
         });
 };
 
-export const LogOut = (router: AppRouterInstance) => {
-	signOut(auth)
-		.then(() => {
-			successMessage("Logout successful! 🎉");
-			router.push("/");
-		})
-		.catch((error) => {
-			errorMessage("Couldn't sign out ❌");
-		});
-};

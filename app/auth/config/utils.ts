@@ -1,9 +1,9 @@
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth } from "@/app/config/firebase";
+import { app, db } from "@/app/auth/config/firebase";
 import { toast } from "react-toastify";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { doc, deleteDoc, onSnapshot, collection, addDoc, query, where, serverTimestamp, orderBy, Timestamp } from "firebase/firestore";
-import db from "@/app/config/firebase";
+// import db from "@/app/auth/config/firebase";
 
 export interface Items {
     [key: string]: any,
@@ -83,29 +83,29 @@ export const errorMessage = (message:string) => {
 	});
 };
 
-export const LoginUser = (email: string, password: string, router: AppRouterInstance) => {
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            successMessage("Authentication successful 🎉");
-            router.push("/dashboard");
-        })
-        .catch((error) => {
-            console.error(error);
-            errorMessage("Incorrect Email/Password ❌");
-        });
-};
+// export const LoginUser = (email: string, password: string, router: AppRouterInstance) => {
+//     signInWithEmailAndPassword(auth, email, password)
+//         .then((userCredential) => {
+//             const user = userCredential.user;
+//             successMessage("Authentication successful 🎉");
+//             router.push("/admin_pane/dashboard");
+//         })
+//         .catch((error) => {
+//             console.error(error);
+//             errorMessage("Incorrect Email/Password ❌");
+//         });
+// };
 
-export const LogOut = (router: AppRouterInstance) => {
-	signOut(auth)
-		.then(() => {
-			successMessage("Logout successful! 🎉");
-			router.push("/");
-		})
-		.catch((error) => {
-			errorMessage("Couldn't sign out ❌");
-		});
-};
+// export const LogOut = (router: AppRouterInstance) => {
+// 	signOut(auth)
+// 		.then(() => {
+// 			successMessage("Logout successful! 🎉");
+// 			router.push("/");
+// 		})
+// 		.catch((error) => {
+// 			errorMessage("Couldn't sign out ❌");
+// 		});
+// };
 
 export const getCategories = async (setCategories: any) => {
 	try {

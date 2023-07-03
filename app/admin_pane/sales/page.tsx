@@ -1,15 +1,15 @@
 "use client"
-import SideNav from "@/app/dashboard/SideNav"
+import SideNav from "@/app/admin_pane/dashboard/SideNav"
 import { BsFillPrinterFill, BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Header from "@/app/dashboard/Header";
+import Header from "@/app/admin_pane/dashboard/Header";
 import React, { useState, useCallback, useEffect } from "react"
-import { auth } from '@/app/config/firebase'
+import { auth } from "@/app/auth/config/firebase"
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from 'next/navigation'
-import Loading from "@/app/dashboard/Loading"
-import { Sales, getSales, getSalesForDay } from "@/app/config/utils";
+import Loading from "@/app/admin_pane/dashboard/Loading"
+import { Sales, getSales, getSalesForDay } from "@/app/auth/config/utils";
 import { Collapse } from "react-collapse";
 
 interface User {

@@ -19,7 +19,7 @@ export default function Home() {
         <a
           className="fixed left-0 top-0 flex w-full justify-center place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
           href="/auth"
-          target="_blank"
+          target="_self"
           rel="noopener noreferrer"
         >
           Login 

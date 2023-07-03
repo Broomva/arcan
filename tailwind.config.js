@@ -5,7 +5,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './auth/**/*.{js,ts,jsx,tsx,mdx}',
-    './dashboard/**/*.{js,ts,jsx,tsx,mdx}',
+    './admin_pane/dashboard/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {

@@ -1,34 +1,44 @@
-import { LogOut } from "@/app/config/utils";
+import { LogOut } from "@/app/auth/logout";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { AiFillCloseCircle } from "react-icons/ai";
 import { BsFillBarChartFill, BsPersonFillLock } from "react-icons/bs";
 import { MdCategory, MdShoppingCart } from "react-icons/md";
 import { RiDashboardFill } from "react-icons/ri";
 
-export default function SideNav() { 
+export default function MobileNav({setShowModal}: any) { 
      const router = useRouter()
     return (
-         <div className='w-[15%] md:block hidden'>
-            <nav className='w-[15%] fixed flex flex-col left-0 h-[100vh] bg-[#160F3F] p-4 space-y-8'>
-                <Link href="/" className='hover:text-white mt-4 mb-8 font-bold text-xl text-gray-300'>arcan</Link>
+         <div className='w-2/3 h-[100vh] fixed top-0 right-0 md:hidden block bg-[#160F3F] z-50'>
+            <nav className='w-full flex flex-col h-[100vh] p-4 space-y-8'>
+                <div className="w-full flex items-center space-between">
+                    <div className="mr-[75px]">
+                        <Link href="/" className='hover:text-white mt-4 mb-8 font-bold text-xl text-gray-300'>arcan</Link>
+                    </div>
+                    <div onClick={() => setShowModal(false)}>
+                           <AiFillCloseCircle className="text-3xl cursor-pointer text-white"/>
+                    </div>
+                 
+                </div>
+               
                 <div className="w-full flex items-center">
                       <RiDashboardFill className="text-[#9AA8BD] hover:text-white mr-2"/>
-                     <Link href="/dashboard" className="text-[#9AA8BD] hover:text-white">Dashboard</Link>
+                     <Link href="/admin_pane/dashboard" className="text-[#9AA8BD] hover:text-white">Dashboard</Link>
                 </div>
                
                 <div className="w-full flex items-center">
                       <BsFillBarChartFill className="text-[#9AA8BD] hover:text-white mr-2"/>
-                     <Link href="/sales" className="text-[#9AA8BD] hover:text-white">Sales</Link>
+                     <Link href="/admin_pane/sales" className="text-[#9AA8BD] hover:text-white">Sales</Link>
                 </div>
                 
                   <div className="w-full flex items-center">
                       <MdShoppingCart className="text-[#9AA8BD] hover:text-white mr-2"/>
-                     <Link href="/products" className="text-[#9AA8BD] hover:text-white">Products</Link>
+                     <Link href="/admin_pane/products" className="text-[#9AA8BD] hover:text-white">Products</Link>
                 </div>
 
                  <div className="w-full flex items-center">
                       <MdCategory className="text-[#9AA8BD] hover:text-white mr-2"/>
-                     <Link href="/categories" className="text-[#9AA8BD] hover:text-white">Categories</Link>
+                     <Link href="/admin_pane/categories" className="text-[#9AA8BD] hover:text-white">Categories</Link>
                 </div>
 
                   <div className="w-full flex items-center">

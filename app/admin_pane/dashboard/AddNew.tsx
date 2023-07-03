@@ -2,7 +2,7 @@ import { AiFillCloseCircle } from "react-icons/ai"
 import { MdDeleteForever } from "react-icons/md"
 import { IoMdAddCircle } from "react-icons/io"
 import React, { FormEventHandler, useState, ChangeEvent } from "react"
-import { addSales, Items, Product, calculateTotalAmount } from "@/app/config/utils"
+import { addSales, Items, Product, calculateTotalAmount } from "@/app/auth/config/utils"
 
 interface Props {
     setAddNew: any

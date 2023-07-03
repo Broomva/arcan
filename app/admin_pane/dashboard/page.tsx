@@ -1,14 +1,14 @@
 "use client"
 import React, { useState, useCallback, useEffect } from 'react'
-import AddNew from '@/app/dashboard/AddNew'
-import SideNav from '@/app/dashboard/SideNav'
+import AddNew from '@/app/admin_pane/dashboard/AddNew'
+import SideNav from '@/app/admin_pane/dashboard/SideNav'
 import Link from 'next/link'
-import Header from '@/app/dashboard/Header'
-import { auth } from '@/app/config/firebase'
+import Header from '@/app/admin_pane/dashboard/Header'
+import { auth } from "@/app/auth/config/firebase"
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from 'next/navigation'
-import Loading from '@/app/dashboard/Loading'
-import { Sales, getCategories, getProducts, getSales, getTotalSales, User } from '@/app/config/utils'
+import Loading from '@/app/admin_pane/dashboard/Loading'
+import { Sales, getCategories, getProducts, getSales, getTotalSales, User } from '@/app/auth/config/utils'
 
     
 export default function Dashboard() {
@@ -20,19 +20,31 @@ export default function Dashboard() {
     const openModal = () => setAddNew(true)
     const [user, setUser] = useState<User>()
     const router = useRouter()
+
+    const isUserLoggedIn = useCallback(() => {
+        onAuthStateChanged(auth, async (user) => {
+          if (user !== null) {
+            setUser({ email: user.email, uid: user.uid });
+            const promises = [getProducts(setProducts), getCategories(setCategories), getTotalSales(setTotalSales), getSales(setSales)];
+            await Promise.all(promises);
+          } else {
+            return router.push("/");
+          }
+        });
+      }, [router]);
     
-	const isUserLoggedIn = useCallback(() => {
-		onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                setUser({ email: user.email, uid: user.uid });
-                const promises = [getProducts(setProducts), getCategories(setCategories), getTotalSales(setTotalSales), getSales(setSales)];
-                await Promise.all(promises);
+	// const isUserLoggedIn = useCallback(() => {
+	// 	onAuthStateChanged(auth, async (user) => {
+    //         if (user) {
+    //             setUser({ email: user.email, uid: user.uid });
+    //             const promises = [getProducts(setProducts), getCategories(setCategories), getTotalSales(setTotalSales), getSales(setSales)];
+    //             await Promise.all(promises);
                 
-			} else {
-				return router.push("/");
-			}
-		});
-	}, [router]);
+	// 		} else {
+	// 			return router.push("/");
+	// 		}
+	// 	});
+	// }, [router]);
 
 	useEffect(() => {
         isUserLoggedIn();
@@ -74,7 +86,7 @@ export default function Dashboard() {
                                         #{sale.id}
                                     </span>
                                 </p>
-                            <Link href="/sales" className='px-4 py-2 bg-[#D64979] text-white text-sm rounded'>Details</Link>
+                            <Link href="/admin_pane/sales" className='px-4 py-2 bg-[#D64979] text-white text-sm rounded'>Details</Link>
                         </div>
                         ))}
                         

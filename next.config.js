@@ -9,7 +9,7 @@ const nextConfig = {
       {
         source: "/version/:path*",
         destination: "https://broomva--arcan-version.modal.run/:path*",
-      }     
+      },
     ];
   },
 };
