@@ -2,7 +2,7 @@ import { getApps, initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 import { EmailAuthProvider, getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { firebaseConfig } from '@/app/config/firebase.config.js'
+import { firebaseConfig } from '@/app/config/firebase.config'
 
 // Initialize Firebase
 let app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];

@@ -173,8 +173,7 @@ cython_debug/
 
 *.lock
 
-/app/config/firebase.config.js
-
+/app/config/firebase.config.ts
 # dependencies
 /node_modules
 /.pnp
