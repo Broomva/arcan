@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.7](https://github.com/Broomva/arcan/compare/v1.3.6...v1.3.7) (2023-07-03)
+
+
+### Bug Fixes
+
+* **app:** fixed firebase config to use env variables with client side rendering ([f9ae9af](https://github.com/Broomva/arcan/commit/f9ae9afbb91f3b7ea4edb64a159925d6ff100708))
+* **auth:** fix auth page ([0845419](https://github.com/Broomva/arcan/commit/08454197947412de63af016010b1af7f82e82ea5))
+* fixed firebase deps ([df7bb7f](https://github.com/Broomva/arcan/commit/df7bb7f3b5ca33bb04607da8717623e9d892ced9))
+
 ## [1.3.6](https://github.com/Broomva/arcan/compare/v1.3.5...v1.3.6) (2023-07-03)
 
 
