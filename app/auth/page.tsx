@@ -4,16 +4,28 @@ import React, { FormEventHandler, useState } from "react"
 import { useRouter } from 'next/navigation'
 import Image from "next/image"
 
-export default function Home() {
-  const [email, setEmail] = useState<string>("")
-  const [password, setPassword] = useState<string>("")
-  const router = useRouter()
-  
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault()
-    LoginUser(email, password, router)
+import { useAuthState } from 'react-firebase-hooks/auth';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { auth } from '@/app/firebase';
 
-  }
+
+export default function Home() {
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const router = useRouter()
+    const [user, loading, error] = useAuthState(auth);
+
+
+    if (user) {
+        // user is already logged in, redirect to home page
+        router.push('/dashboard');
+    }
+    
+    const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault()
+        LoginUser(email, password, router)
+
+    }
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
