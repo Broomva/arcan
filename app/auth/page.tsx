@@ -13,8 +13,6 @@ import { errorMessage, successMessage } from "@/app/helpers/ui";
 
 
 
-
-
 export default function Home() {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
