@@ -13,7 +13,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-fastapi = "^0.98.0"
+fastapi = ">=0.98,<0.100"
 uvicorn = "^0.22.0"
 modal-client = "^0.49.2509"
 black = "^23.3.0"
