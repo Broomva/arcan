@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.6](https://github.com/Broomva/arcan/compare/v1.3.5...v1.3.6) (2023-07-03)
+
+
+### Bug Fixes
+
+* **app:** added google signin ([f866cb7](https://github.com/Broomva/arcan/commit/f866cb7ab507428f6073da300720a366a29a6fb1))
+* **app:** fixed secrets setup for firebase ([9e9bd6a](https://github.com/Broomva/arcan/commit/9e9bd6a4e83f3a206439191a939c344bb8a18d54))
+* tailwind ([c1bb567](https://github.com/Broomva/arcan/commit/c1bb56770bd57038de77882b13fb702bf72e0b16))
+
 ## [1.3.5](https://github.com/Broomva/arcan/compare/v1.3.4...v1.3.5) (2023-07-02)
 
 
