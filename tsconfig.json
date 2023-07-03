@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "lib": [
       "dom",
       "dom.iterable",
@@ -20,7 +24,7 @@
     "plugins": [
       {
         "name": "next"
-      }
+      },
     ],
     "strictNullChecks": true
   },

@@ -1,9 +1,9 @@
 import { ImExit } from "react-icons/im"
-import { LogOut } from "@/app/utils"
+import { LogOut } from "@/app/config/utils"
 import { useRouter } from "next/navigation"
 import { HiMenuAlt2 } from "react-icons/hi"
 import { useState } from "react"
-import MobileNav from "./MobileNav"
+import MobileNav from "@/app/dashboard/MobileNav"
 
 interface Props {
     title: string

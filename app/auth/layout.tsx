@@ -1,7 +1,6 @@
 import { Raleway } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import styles from './styles.module.css'
 const inter = Raleway({ subsets: ["latin"]})
 
 export const metadata = {

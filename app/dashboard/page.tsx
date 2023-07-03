@@ -1,14 +1,14 @@
 "use client"
 import React, { useState, useCallback, useEffect } from 'react'
-import AddNew from './AddNew'
-import SideNav from './SideNav'
+import AddNew from '@/app/dashboard/AddNew'
+import SideNav from '@/app/dashboard/SideNav'
 import Link from 'next/link'
-import Header from './Header'
-import { auth } from '@/app/firebase'
+import Header from '@/app/dashboard/Header'
+import { auth } from '@/app/config/firebase'
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from 'next/navigation'
-import Loading from './Loading'
-import { Sales, getCategories, getProducts, getSales, getTotalSales, User } from '@/app/utils'
+import Loading from '@/app/dashboard/Loading'
+import { Sales, getCategories, getProducts, getSales, getTotalSales, User } from '@/app/config/utils'
 
     
 export default function Dashboard() {

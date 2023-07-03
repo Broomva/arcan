@@ -1,5 +1,3 @@
-import styles from '../styles/About.module.css'
-
 import { Inter } from 'next/font/google'
 
 import Image from "next/image";

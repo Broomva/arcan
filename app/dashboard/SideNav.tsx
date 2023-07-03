@@ -1,4 +1,4 @@
-import { LogOut } from "@/app/utils";
+import { LogOut } from "@/app/config/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { BsFillBarChartFill, BsPersonFillLock } from "react-icons/bs";

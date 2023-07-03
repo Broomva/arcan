@@ -1,13 +1,13 @@
 "use client"
-import Header from "../dashboard/Header"
-import SideNav from "../dashboard/SideNav"
+import Header from "@/app/dashboard/Header"
+import SideNav from "@/app/dashboard/SideNav"
 import { FormEventHandler, useState, useCallback, useEffect } from "react"
-import { auth } from '@/app/firebase'
+import { auth } from '@/app/config/firebase'
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from 'next/navigation'
-import Loading from "../dashboard/Loading"
+import Loading from "@/app/dashboard/Loading"
 import { MdDeleteForever } from "react-icons/md"
-import { deleteCategory, getCategories, addCategory } from '@/app/utils';
+import { deleteCategory, getCategories, addCategory } from '@/app/config/utils';
 
 interface User {
     email: string | null,
