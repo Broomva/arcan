@@ -8,7 +8,7 @@ import { auth } from "@/app/auth/config/firebase";
 import { errorMessage, successMessage } from "@/app/misc/helpers/ui";
 
 
-export const LoginUser = (email: string, password: string, router: AppRouterInstance) => {
+const LoginUser = (email: string, password: string, router: AppRouterInstance) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;

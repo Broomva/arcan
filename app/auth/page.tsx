@@ -10,7 +10,7 @@ import { getAuth, GoogleAuthProvider, GithubAuthProvider, EmailAuthProvider } fr
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 
-export const FirebaseAuthProvider = {
+const FirebaseAuthProvider = {
         popupMode: true,
         signInFlow: 'popup',
         signInSuccessUrl: '/admin_pane/dashboard',
@@ -24,7 +24,7 @@ export const FirebaseAuthProvider = {
         ]
     }   
 
-export const FirebaseAuthPane = () => {
+const FirebaseAuthPane = () => {
     return (
 
         <div className="flex flex-col items-center justify-center w-full h-full p-10">

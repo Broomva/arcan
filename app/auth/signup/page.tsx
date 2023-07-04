@@ -1,45 +1,3 @@
-
-// 'use client'
-// import React from "react";
-// // import { signUp } from "@/app/auth/signup/signup";
-// import { useRouter } from 'next/navigation'
-// import { app } from "@/app/auth/config/firebase";
-// import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-// import { UserCredential } from "firebase/auth";
-
-// const auth = getAuth(app);
-
-// async function signUp(email: string, password: string): Promise<{ result: UserCredential | null, error: any }> {
-//     let result: UserCredential | null = null,
-//         error: any = null;
-//     try {
-//         result = await createUserWithEmailAndPassword(auth, email, password);
-//     } catch (e) {
-//         error = e;
-//     }
-
-//     return { result, error };
-// }
-
-// export default function Page() {
-//     const [email, setEmail] = React.useState('')
-//     const [password, setPassword] = React.useState('')
-//     const router = useRouter()
-
-//     const handleForm = async (event) => {
-//         event.preventDefault()
-
-//         const { result, error } = await signUp(email, password);
-
-//         if (error) {
-//             return console.log(error)
-//         }
-
-//         // else successful
-//         console.log(result)
-//         return router.push("/auth/signin")
-//     }
-
 "use client"
 import React, { FormEventHandler, useState } from "react"
 import { useRouter } from 'next/navigation'
@@ -51,19 +9,6 @@ import { errorMessage, successMessage } from "@/app/misc/helpers/ui";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { UserCredential } from "firebase/auth";
 
-
-// export const LoginUser = (email: string, password: string, router: AppRouterInstance) => {
-//     signInWithEmailAndPassword(auth, email, password)
-//         .then((userCredential) => {
-//             const user = userCredential.user;
-//             successMessage("Authentication successful 🎉");
-//             router.push("/admin_pane/dashboard");
-//         })
-//         .catch((error) => {
-//             console.error(error);
-//             errorMessage("Incorrect Email/Password ❌");
-//         });
-// };
 
 const auth = getAuth(app);
 
@@ -85,11 +30,6 @@ export default function Home() {
   const [password, setPassword] = useState<string>("")
   const router = useRouter()
   
-//   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-//     e.preventDefault()
-//     LoginUser(email, password, router)
-
-//   }
 
     const handleForm = async (event) => {
         event.preventDefault()
@@ -99,8 +39,6 @@ export default function Home() {
         if (error) {
             return console.log(error)
         }
-
-        // else successful
         console.log(result)
         return router.push("/auth/signin")
     }
