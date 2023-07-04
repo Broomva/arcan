@@ -22,7 +22,7 @@ export default function Home() {
           target="_self"
           rel="noopener noreferrer"
         >
-          Login 
+          Enter 
           <Image
             src="/arcan.png"
             alt="arcan logo"

@@ -3,6 +3,7 @@ export const metadata = {
   description: 'a multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools',
 }
 
+import { AuthContextProvider } from '@/app/context/auth'
 export default function RootLayout({
   children,
 }: {
@@ -10,8 +11,9 @@ export default function RootLayout({
 }) {
   return (
       <div>
-            {children}
+        <AuthContextProvider>
+          {children}
+        </AuthContextProvider>
       </div>  
-   
   )
 }

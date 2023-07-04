@@ -31,22 +31,22 @@ const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     addCategory(categoryName)
     setCategoryName("")
 }
-	const isUserLoggedIn = useCallback(() => {
-		onAuthStateChanged(auth, (user) => {
-			if (user) {
-                setUser({ email: user.email, uid: user.uid });
-                getCategories(setCategories)
-			} else {
-				return router.push("/");
-			}
-		});
-    }, [router]);
+	// const isUserLoggedIn = useCallback(() => {
+	// 	onAuthStateChanged(auth, (user) => {
+	// 		if (user) {
+    //             setUser({ email: user.email, uid: user.uid });
+    //             getCategories(setCategories)
+	// 		} else {
+	// 			return router.push("/");
+	// 		}
+	// 	});
+    // }, [router]);
     
-	useEffect(() => {
-		isUserLoggedIn();
-	}, [isUserLoggedIn]);
+	// useEffect(() => {
+	// 	isUserLoggedIn();
+	// }, [isUserLoggedIn]);
 
-    if (!user?.email) return <Loading />
+    // if (!user?.email) return <Loading />
     
     return (
         <main className='flex w-full min-h-[100vh] relative'>

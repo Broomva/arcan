@@ -46,11 +46,11 @@ export default function Dashboard() {
 	// 	});
 	// }, [router]);
 
-	useEffect(() => {
-        isUserLoggedIn();
-	}, [isUserLoggedIn]);
+	// useEffect(() => {
+    //     isUserLoggedIn();
+	// }, [isUserLoggedIn]);
 
-    if(!user?.email) return <Loading/>
+    // if(!user?.email) return <Loading/>
     return (
         <main className='flex w-full min-h-[100vh] relative'>
           <SideNav/>

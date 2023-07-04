@@ -1,33 +1,38 @@
 "use client"
-//import { LoginUser } from "@/app/config/utils"
-// import React, { FormEventHandler, useState } from "react"
 import { useRouter } from 'next/navigation'
 import Image from "next/image"
-
+import React, { FormEventHandler, useState } from "react"
 import { useAuthState } from 'react-firebase-hooks/auth';
-
 import { app } from '@/app/auth/config/firebase';
-// import { auth } from "@/app/auth/config/firebase";
 import Loading from '@/app/admin_pane/dashboard/Loading';
-//import { LoginUser, FirebaseAuthProvider } from '@/app/auth/login'
 import { errorMessage, successMessage } from "@/app/misc/helpers/ui";
-import { FirebaseAuthPane} from "@/app/auth/login"
+import { getAuth, GoogleAuthProvider, GithubAuthProvider, EmailAuthProvider } from 'firebase/auth';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 
-import { getAuth, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
+export const FirebaseAuthProvider = {
+        popupMode: true,
+        signInFlow: 'popup',
+        signInSuccessUrl: '/admin_pane/dashboard',
+        siteName: 'arcanapp.io',
+        //tosUrl: '/terms-of-service',
+        privacyPolicyUrl: '/auth/privacy_policy',
+        signInOptions: [
+            GoogleAuthProvider.PROVIDER_ID,
+            GithubAuthProvider.PROVIDER_ID,
+            EmailAuthProvider.PROVIDER_ID,
+        ]
+    }   
 
-// export const FirebaseAuthProvider = {
-//         signInFlow: 'popup',
-//         signInSuccessUrl: '/admin_pane/dashboard',
-//         //tosUrl: '/terms-of-service',
-//         privacyPolicyUrl: '/auth/privacy_policy',
-//         signInOptions: [
-//             GoogleAuthProvider.PROVIDER_ID,
-//             GithubAuthProvider.PROVIDER_ID,
-//         ]
-// }
+export const FirebaseAuthPane = () => {
+    return (
 
-
+        <div className="flex flex-col items-center justify-center w-full h-full p-10">
+        <StyledFirebaseAuth uiConfig={FirebaseAuthProvider} firebaseAuth={getAuth(app)} />
+        </div>
+    );
+}
+    
 export default function Home() {
     // const [email, setEmail] = useState<string>("")
     // const [password, setPassword] = useState<string>("")
@@ -49,11 +54,10 @@ export default function Home() {
         router.push('/admin_pane/dashboard');
     }
 
-    // const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-    //     e.preventDefault()
-    //     LoginUser(email, password, router)
-
-    // } onSubmit={handleSubmit}
+    const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault()
+        router.push('/auth/signin')
+    }
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -78,25 +82,31 @@ export default function Home() {
             </a>
             </div>
 
-            <div className="flex min-h-full flex-1 flex-col justify-center px-4 py-12 lg:px-8">
+            <div className="flex min-h-full flex-1 flex-col justify-center px-24 py-12 lg:px-20">
                 <div className="bg-white py-6 sm:py-8 lg:py-12">
-                <Image 
-                    className="mx-auto h-20 w-auto"
-                    src="/arcan.png"
-                    alt="Arcan Login"
-                    width={800}
-                    height={1200} 
-                />
+                    <Image 
+                        className="mx-auto h-20 w-auto"
+                        src="/arcan.png"
+                        alt="Arcan Login"
+                        width={800}
+                        height={1200} 
+                    />
                     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                         {/* <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Arcan Login</h2> */}
 
-                        <form className="mx-auto max-w-lg rounded-lg border">
+                        {/* <form className="mx-auto max-w-lg rounded-lg border"> */}
+                        <form className="mx-auto max-w-lg rounded-lg border" onSubmit={handleSubmit}>
+                                <FirebaseAuthPane /> 
 
-                            <FirebaseAuthPane /> 
+                            {/* <div className="flex items-center justify-center p-2">
+                                <button className="block center rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base">
+                                    Sign In with Email
+                                </button>
+                            </div> */}
 
                             <div className="flex items-center justify-center bg-gray-100 p-4">
                                 <p className="text-center text-sm text-gray-500">Dont have an account? 
-                                    <a href="/auth/register" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"> Register </a>
+                                    <a href="/auth/signup" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"> Sign Up! </a>
                                 </p>
                             </div>
                         </form>
@@ -106,77 +116,3 @@ export default function Home() {
         </main>
    );
 }
-
-
-
-
-// import React, { useState } from 'react'
-// import { initializeApp } from "firebase/app";
-// import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-// import './App.css';
-
-// // import { getAnalytics } from "firebase/analytics";
-
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-// const firebaseConfig = {
-//   apiKey: 
-//   authDomain:
-//   databaseURL: 
-//   projectId: 
-//   storageBucket: 
-//   messagingSenderId: 
-//   appId: 
-// };
-
-
-// initializeApp(firebaseConfig);
-// // const analytics = getAnalytics(app);
-// const firebaseApp = initializeApp(firebaseConfig);
-// const provider = new GoogleAuthProvider();
-// const auth = getAuth(firebaseApp);
-
-// export default function App() {
-//   const [user, setUser] = useState(null)
-//   onAuthStateChanged(auth, (user) => {
-//           if (user) {
-//             // User is signed in, see docs for a list of available properties
-//             // https://firebase.google.com/docs/reference/js/firebase.User
-//             setUser(user);
-//             // ...
-//           } else {
-//             // User is signed out
-//             // ...
-//             setUser(null)
-//             }
-//           }
-//         );
-
-//   return <>{user ? 
-//   <><p>Welcome</p><button onClick={() => signOut(auth)}>Google Logout</button></>
-//   : <><p>Enjoy</p>
-//   <button onClick={() =>  signInWithPopup(auth, provider)
-//                   .then((result) => {
-//                     // The signed-in user info.
-//                     // eslint-disable-next-line
-//                     const user = result.user;
-//                     // ...
-//                   }).catch((error) => {
-//                     // Handle Errors here.
-//                     // eslint-disable-next-line
-//                     const errorCode = error.code;
-//                     // eslint-disable-next-line
-//                     const errorMessage = error.message;
-//                     // The email of the user's account used.
-//                     // eslint-disable-next-line
-//                     const email = error.email;
-//                     // The AuthCredential type that was used.
-//                     // eslint-disable-next-line
-//                     const credential = GoogleAuthProvider.credentialFromError(error);
-//                     // ...
-//                   })}>
-//                       Sign in with Google
-//                     </button>
-//   </>}</>
-// }

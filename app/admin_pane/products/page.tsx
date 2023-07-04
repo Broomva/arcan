@@ -26,23 +26,23 @@ export default function Home() {
     const [category, setCategory] = useState<string>("select")
     const [products, setProducts] = useState([])
     
-	const isUserLoggedIn = useCallback(() => {
-		onAuthStateChanged(auth, (user) => {
-			if (user) {
-                setUser({ email: user.email, uid: user.uid });
-                getCategories(setCategories)
-                getProducts(setProducts)
-			} else {
-				return router.push("/");
-			}
-		});
-	}, [router]);
+	// const isUserLoggedIn = useCallback(() => {
+	// 	onAuthStateChanged(auth, (user) => {
+	// 		if (user) {
+    //             setUser({ email: user.email, uid: user.uid });
+    //             getCategories(setCategories)
+    //             getProducts(setProducts)
+	// 		} else {
+	// 			return router.push("/");
+	// 		}
+	// 	});
+	// }, [router]);
 
-	useEffect(() => {
-		isUserLoggedIn();
-	}, [isUserLoggedIn]);
+	// useEffect(() => {
+	// 	isUserLoggedIn();
+	// }, [isUserLoggedIn]);
 
-    if (!user?.email) return <Loading />
+    // if (!user?.email) return <Loading />
     
     const handleSubmit : FormEventHandler<HTMLFormElement> =  (e) => {
         e.preventDefault()

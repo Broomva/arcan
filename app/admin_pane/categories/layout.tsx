@@ -3,6 +3,7 @@ export const metadata = {
   description: 'arcan categories',
 }
 
+import { AuthContextProvider } from '@/app/context/auth'
 export default function RootLayout({
   children,
 }: {
@@ -10,8 +11,9 @@ export default function RootLayout({
 }) {
   return (
       <div>
-            {children}
+        <AuthContextProvider>
+          {children}
+        </AuthContextProvider>
       </div>  
-   
   )
 }
