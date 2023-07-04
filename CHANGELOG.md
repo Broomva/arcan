@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.8](https://github.com/Broomva/arcan/compare/v1.3.7...v1.3.8) (2023-07-04)
+
+
+### Bug Fixes
+
+* **auth:** fixed auth layout decorator to make pages paywalled as needed ([5d835b6](https://github.com/Broomva/arcan/commit/5d835b660774f42abcef79b4b885538ac8e4c661))
+* fixed exports in pages ([b3de1b9](https://github.com/Broomva/arcan/commit/b3de1b95815d71c97e58967fa7bd90ad3e95c577))
+* fixed funding links ([a92c490](https://github.com/Broomva/arcan/commit/a92c490bc1cc86477aee3569c2b7d3346a205a20))
+
 ## [1.3.7](https://github.com/Broomva/arcan/compare/v1.3.6...v1.3.7) (2023-07-03)
 
 
