@@ -1,15 +1,14 @@
 "use client";
-import {
-    onAuthStateChanged,
-    getAuth,
-    User,
-  } from 'firebase/auth';
+import Loading from '@/app/admin_pane/dashboard/Loading';
 import { app } from '@/app/auth/config/firebase';
-import React, { createContext, useContext, useEffect, useState} from 'react';
-import Loading from '@/app/admin_pane/dashboard/Loading'
+import {
+    User,
+    getAuth,
+    onAuthStateChanged,
+} from 'firebase/auth';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-import { auth } from "@/app/auth/config/firebase"
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 type AuthContextType = {
     user: User | null;
@@ -45,11 +44,11 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
     });
 
     return () => unsubscribe();
-    }, []);
+    }, [router]);
 
     return (
     <AuthContext.Provider value={{ user }}>
-        {loading ? <Loading></Loading> : children}
+        {loading ? <Loading/> : children}
     </AuthContext.Provider>
     );
 };

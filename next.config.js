@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+
   rewrites: async () => {
     return [
       {
@@ -15,17 +17,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-
-
-// module.exports = {
-//   images: {
-//     remotePatterns: [
-//       {
-//         protocol: 'https',
-//         hostname: 'tailwindui.com',
-//         port: '',
-//         pathname: '/**',
-//       },
-//     ],
-//   },
-// }
