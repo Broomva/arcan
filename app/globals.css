@@ -47,6 +47,7 @@ body {
 body {
 	box-sizing: border-box;
 	padding: 0;
+  font-family: 'Open Sans', sans-serif;
 	margin: 0;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
