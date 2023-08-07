@@ -46,7 +46,7 @@ stub = Stub(
 )
 
 @stub.function()
-@web_endpoint(method="GET") #, custom_domains=["arcanapp.io"])
+@web_endpoint(method="GET") #, custom_domains=["arcanai.tech"])
 # @api.get("/")
 def entrypoint():
     return {"message": "Arcan is running"}
