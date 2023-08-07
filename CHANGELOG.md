@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.9](https://github.com/Broomva/arcan/compare/v1.3.8...v1.3.9) (2023-08-07)
+
+
+### Bug Fixes
+
+* **agents:** add qanda agent and modal web endpoint ([22372bc](https://github.com/Broomva/arcan/commit/22372bcd11e4ea176322d14288adff7cd86539aa))
+* **app:** added spells_studio router, validated current .lock as production working ([4d0d19a](https://github.com/Broomva/arcan/commit/4d0d19a2ef81e7105e74ff0617a6050e306c7df2))
+* removed api folder to test vercel serverless size error ([ea69375](https://github.com/Broomva/arcan/commit/ea6937502185b39c0d32e9cfa7f01704c101044b))
+
 ## [1.3.8](https://github.com/Broomva/arcan/compare/v1.3.7...v1.3.8) (2023-07-04)
 
 
