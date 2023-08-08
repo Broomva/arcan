@@ -98,3 +98,11 @@ default_prompt = (
 def main(prompt: str = default_prompt):
     for part in stream_chat.call(prompt=prompt):
         print(part, end="")
+
+
+
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain.llms import OpenAI
+
+llm = OpenAI(streaming=True, callbacks=[StreamingStdOutCallbackHandler()], temperature=0)
+resp = llm("Write me a song about sparkling water.")

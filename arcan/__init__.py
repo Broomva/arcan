@@ -1,13 +1,13 @@
 # %%
-from fastapi import Depends
+from fastapi import Depends, Request
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from modal import Image, Secret, Stub, web_endpoint
 
-from arcan.session.auth import requires_auth
 from arcan.agent.chains import ArcanConversationChain
-from arcan.agent.vectorstores import faiss_text_index_loader, load_faiss_vectorstore
 from arcan.agent.scrapping import url_text_scrapper
-
+from arcan.agent.vectorstores import (faiss_text_index_loader,
+                                      load_faiss_vectorstore)
+from arcan.session.auth import log_endpoint, requires_auth
 
 auth_scheme = HTTPBearer()
 

@@ -1,10 +1,12 @@
-from langchain.chains import ConversationalRetrievalChain, LLMChain, RetrievalQA
+from langchain.callbacks import get_openai_callback
+from langchain.chains import (ConversationalRetrievalChain, LLMChain,
+                              RetrievalQA)
 from langchain.chains.question_answering import load_qa_chain
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.prompts.prompt import PromptTemplate
 from langchain.memory import ConversationBufferMemory
-from arcan.agent.llm import LLM
+from langchain.prompts.prompt import PromptTemplate
 
+from arcan.agent.llm import LLM
 from arcan.agent.templates import chains_templates
 
 
@@ -55,7 +57,20 @@ class ArcanConversationChain:
 
     def run(self, prompt, vectorstore):
         chain = self.get_chat(vectorstore)
-        return chain.run(prompt)
+        try:
+            with get_openai_callback() as cb:
+                return self.run_with_openai_callback(chain, prompt, cb)
+        except Exception as e:
+            print(e)
+            return chain.run(prompt)
+
+    def run_with_openai_callback(self, chain, prompt, cb):
+        result = chain.run(prompt)
+        print(f"Total Tokens: {cb.total_tokens}")
+        print(f"Prompt Tokens: {cb.prompt_tokens}")
+        print(f"Completion Tokens: {cb.completion_tokens}")
+        print(f"Total Cost (USD): ${cb.total_cost}")
+        return result
 
 
 def retrieve_sources(sources_refs: str, texts: list[str]) -> list[str]:
