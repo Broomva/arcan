@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/Broomva/arcan/compare/v1.3.9...v1.4.0) (2023-08-08)
+
+
+### Features
+
+* **agent:** added base text scrapping llm agent and modal deployment ([d4ed6dd](https://github.com/Broomva/arcan/commit/d4ed6ddfae3bff9ae971f4395225e8c4f533285f))
+
+
+### Bug Fixes
+
+* removed text_chat.py as it is included in arcan init. Fixed unneded dependencies ([a4a8934](https://github.com/Broomva/arcan/commit/a4a89343f766b4e5a4a56e0050a0cc2c393b0bb4))
+
 ## [1.3.9](https://github.com/Broomva/arcan/compare/v1.3.8...v1.3.9) (2023-08-07)
 
 
