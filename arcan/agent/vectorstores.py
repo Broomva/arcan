@@ -2,7 +2,6 @@ from langchain.vectorstores import FAISS, Chroma
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.document_loaders import DataFrameLoader, UnstructuredMarkdownLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.text_splitter import CharacterTextSplitter
 import pandas as pd
 
 embeddings = OpenAIEmbeddings()

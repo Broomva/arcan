@@ -1,7 +1,7 @@
 # %%
-from fastapi import Depends, Header, HTTPException, Request, status
-from fastapi.security import APIKeyHeader, HTTPAuthorizationCredentials, HTTPBearer
-from modal import Image, Secret, Stub, create_package_mounts, web_endpoint
+from fastapi import Depends
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from modal import Image, Secret, Stub, web_endpoint
 
 from arcan.session.auth import requires_auth
 from arcan.agent.chains import ArcanConversationChain
