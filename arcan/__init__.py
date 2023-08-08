@@ -12,7 +12,7 @@ from arcan.agent.scrapping import url_text_scrapper
 auth_scheme = HTTPBearer()
 
 
-__version__ = "1.3.8"
+__version__ = "1.4.0"
 
 
 # %%
