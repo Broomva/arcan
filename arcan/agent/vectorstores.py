@@ -29,9 +29,10 @@ class VectorStoreHandler:
         return set_vectorstore_strategies[vectorstore_strategy]()
 
 
-
 def load_chroma_vectorstore():
-    return Chroma(persist_directory="indexes/croma_index", embedding_function=embeddings)
+    return Chroma(
+        persist_directory="indexes/croma_index", embedding_function=embeddings
+    )
 
 
 def load_faiss_vectorstore(index_key: str = "default"):
@@ -41,12 +42,12 @@ def load_faiss_vectorstore(index_key: str = "default"):
 def faiss_text_index_loader(text: str, index_key: str = "default"):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
     texts = text_splitter.split_text(text)
-    
+
     docsearch = FAISS.from_texts(
-            texts,
-            OpenAIEmbeddings(chunk_size=500),
-            metadatas=[{"source": i} for i in range(len(texts))],
-        )
+        texts,
+        OpenAIEmbeddings(chunk_size=500),
+        metadatas=[{"source": i} for i in range(len(texts))],
+    )
     docsearch.save_local(f"indexes/faiss_index/{index_key}")
     return docsearch
 

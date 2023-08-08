@@ -5,6 +5,7 @@ import os
 import httpx
 from bs4 import BeautifulSoup
 
+
 def scrape_url(url) -> str:
     # fetch article; simulate desktop browser
     headers = {
@@ -23,9 +24,10 @@ def scrape_url(url) -> str:
 
     return clean_text.replace("\t", "")
 
+
 def url_text_scrapper(url: str):
     domain_regex = r"(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n\.]+)"
-    
+
     match = re.search(domain_regex, url)
 
     if match:
@@ -41,7 +43,7 @@ def url_text_scrapper(url: str):
     else:
         print("Scrapping from url")
         scrapped_text = scrape_url(url)
-        os.makedirs(file_path.parent, exist_ok=True) 
+        os.makedirs(file_path.parent, exist_ok=True)
         file_path.write_text(scrapped_text)
-        
+
     return scrapped_text, clean_domain

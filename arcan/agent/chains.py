@@ -13,8 +13,10 @@ class ArcanConversationChain:
         self.kwargs = kwargs
         self.llm = LLM().llm
         self.embeddings = OpenAIEmbeddings()
-        self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-        
+        self.memory = ConversationBufferMemory(
+            memory_key="chat_history", return_messages=True
+        )
+
     def set_chain(self, **kwargs):
         condense_question_prompt = PromptTemplate.from_template(
             chains_templates()["chat_chain_template"]
@@ -54,16 +56,12 @@ class ArcanConversationChain:
     def run(self, prompt, vectorstore):
         chain = self.get_chat(vectorstore)
         return chain.run(prompt)
-    
-    
+
+
 def retrieve_sources(sources_refs: str, texts: list[str]) -> list[str]:
     """
     Map back from the references given by the LLM's output to the original text parts.
     """
-    clean_indices = [
-        r.replace("-pl", "").strip() for r in sources_refs.split(",")
-    ]
+    clean_indices = [r.replace("-pl", "").strip() for r in sources_refs.split(",")]
     numeric_indices = (int(r) if r.isnumeric() else None for r in clean_indices)
-    return [
-        texts[i] if i is not None else "INVALID SOURCE" for i in numeric_indices
-    ]
+    return [texts[i] if i is not None else "INVALID SOURCE" for i in numeric_indices]

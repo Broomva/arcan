@@ -1,7 +1,6 @@
 # %%
 from fastapi import Depends, Header, HTTPException, Request, status
-from fastapi.security import (APIKeyHeader, HTTPAuthorizationCredentials,
-                              HTTPBearer)
+from fastapi.security import APIKeyHeader, HTTPAuthorizationCredentials, HTTPBearer
 from modal import Image, Secret, Stub, create_package_mounts, web_endpoint
 
 from arcan.session.auth import requires_auth
@@ -14,6 +13,7 @@ auth_scheme = HTTPBearer()
 
 
 __version__ = "1.3.8"
+
 
 # %%
 def get_arcan_version():
@@ -28,9 +28,9 @@ def get_arcan_version():
 
 # %%
 image = Image.debian_slim().pip_install(
-    "fastapi", 
+    "fastapi",
     "uvicorn",
-    "databricks_session", 
+    "databricks_session",
     "arcan",
     # scraping pkgs
     "beautifulsoup4",
@@ -48,6 +48,7 @@ stub = Stub(
     image=image,
     secrets=[Secret.from_name("openai-secret")],
 )
+
 
 @stub.function()
 @web_endpoint(method="GET", custom_domains=["app.arcanai.tech"])
@@ -69,7 +70,8 @@ def version():
 chain = ArcanConversationChain()
 docsearch = None
 job_domain = None
-    
+
+
 def url_text_scrapping_chain(query: str, url: str) -> tuple[str, list[str]]:
     global docsearch, job_domain, chain
     print(docsearch, job_domain)
@@ -78,17 +80,22 @@ def url_text_scrapping_chain(query: str, url: str) -> tuple[str, list[str]]:
         try:
             print("Loading index")
             job_domain = current_domain
-            docsearch = load_faiss_vectorstore(index_key = current_domain)
+            docsearch = load_faiss_vectorstore(index_key=current_domain)
         except Exception as e:
-            print(f'Error loading index: {e}, creating new index')
-            docsearch = faiss_text_index_loader(text = text, index_key = current_domain)
-    print('Running chain')
+            print(f"Error loading index: {e}, creating new index")
+            docsearch = faiss_text_index_loader(text=text, index_key=current_domain)
+    print("Running chain")
     return chain.run(query, docsearch)
+
 
 @stub.function(secret=Secret.from_name("web-auth-token"))
 @web_endpoint(method="GET", custom_domains=["text-chat.arcanai.tech"])
 @requires_auth
-def text_chat(query: str, context_url: str, token: HTTPAuthorizationCredentials = Depends(auth_scheme)):
+def text_chat(
+    query: str,
+    context_url: str,
+    token: HTTPAuthorizationCredentials = Depends(auth_scheme),
+):
     answer = url_text_scrapping_chain(query=query, url=context_url)
     return {
         "answer": answer,
@@ -108,4 +115,3 @@ def text_chat(query: str, context_url: str, token: HTTPAuthorizationCredentials 
 #         for text in sources:
 #             print(text)
 #             print("----")
-

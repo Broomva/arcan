@@ -4,6 +4,7 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 security = HTTPBearer()
 
+
 def requires_auth(func):
     @wraps(func)
     def wrapper(*args, token: HTTPAuthorizationCredentials = security, **kwargs):
