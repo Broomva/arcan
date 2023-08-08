@@ -4,12 +4,16 @@ from fastapi.security import (APIKeyHeader, HTTPAuthorizationCredentials,
                               HTTPBearer)
 from modal import Image, Secret, Stub, create_package_mounts, web_endpoint
 
-from arcan.agent.qanda import qanda_langchain
+from arcan.session.auth import requires_auth
+from arcan.agent.chains import ArcanConversationChain
+from arcan.agent.vectorstores import faiss_text_index_loader, load_faiss_vectorstore
+from arcan.agent.scrapping import url_text_scrapper
+
 
 auth_scheme = HTTPBearer()
 
 
-__version__ = "1.3.9"
+__version__ = "1.3.8"
 
 # %%
 def get_arcan_version():
@@ -46,14 +50,14 @@ stub = Stub(
 )
 
 @stub.function()
-@web_endpoint(method="GET") #, custom_domains=["arcanai.tech"])
+@web_endpoint(method="GET", custom_domains=["app.arcanai.tech"])
 # @api.get("/")
 def entrypoint():
     return {"message": "Arcan is running"}
 
 
 @stub.function()
-@web_endpoint(method="GET")
+@web_endpoint(method="GET", custom_domains=["version.arcanai.tech"])
 # @api.get("/api/version")
 def version():
     print("Arcan is installed")
@@ -62,46 +66,46 @@ def version():
     return {"message": f"Arcan version {version} is installed"}
 
 
-# %%
-
+chain = ArcanConversationChain()
+docsearch = None
+job_domain = None
+    
+def url_text_scrapping_chain(query: str, url: str) -> tuple[str, list[str]]:
+    global docsearch, job_domain, chain
+    print(docsearch, job_domain)
+    text, current_domain = url_text_scrapper(url)
+    if not docsearch and current_domain != job_domain:
+        try:
+            print("Loading index")
+            job_domain = current_domain
+            docsearch = load_faiss_vectorstore(index_key = current_domain)
+        except Exception as e:
+            print(f'Error loading index: {e}, creating new index')
+            docsearch = faiss_text_index_loader(text = text, index_key = current_domain)
+    print('Running chain')
+    return chain.run(query, docsearch)
 
 @stub.function(secret=Secret.from_name("web-auth-token"))
-@web_endpoint(method="GET")
-def qanda(query: str, context_url: str, show_sources: bool = False, token: HTTPAuthorizationCredentials = Depends(auth_scheme)):
-    import os
-
-    print(os.environ["AUTH_TOKEN"])
-
-    if token.credentials != os.environ["AUTH_TOKEN"]:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect bearer token",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-
-    answer, sources = qanda_langchain(query=query, url=context_url)
-    if show_sources:
-        return {
-            "answer": answer,
-            "sources": sources,
-        }
-    else:
-        return {
-            "answer": answer,
-        }
+@web_endpoint(method="GET", custom_domains=["text-chat.arcanai.tech"])
+@requires_auth
+def text_chat(query: str, context_url: str, token: HTTPAuthorizationCredentials = Depends(auth_scheme)):
+    answer = url_text_scrapping_chain(query=query, url=context_url)
+    return {
+        "answer": answer,
+    }
 
 
-@stub.function()
-def qanda_cli(query: str, show_sources: bool = False, context_url: str = None):
-    answer, sources = qanda_langchain(query=query, url=context_url)
-    # Terminal codes for pretty-printing.
-    bold, end = "\033[1m", "\033[0m"
+# @stub.function()
+# def qanda_cli(query: str, show_sources: bool = False, context_url: str = None):
+#     answer, sources = url_text_scrapping_chain(query=query, url=context_url)
+#     # Terminal codes for pretty-printing.
+#     bold, end = "\033[1m", "\033[0m"
 
-    print(f"🦜 {bold}ANSWER:{end}")
-    print(answer)
-    if show_sources:
-        print(f"🔗 {bold}SOURCES:{end}")
-        for text in sources:
-            print(text)
-            print("----")
+#     print(f"🦜 {bold}ANSWER:{end}")
+#     print(answer)
+#     if show_sources:
+#         print(f"🔗 {bold}SOURCES:{end}")
+#         for text in sources:
+#             print(text)
+#             print("----")
 
