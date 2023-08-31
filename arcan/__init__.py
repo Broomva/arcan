@@ -13,7 +13,7 @@ from arcan.session.auth import requires_auth
 auth_scheme = HTTPBearer()
 
 
-__version__ = "1.4.0"
+__version__ = "1.5.0"
 
 
 # %%
