@@ -3,9 +3,9 @@
   "version": "1.0.1",
   "private": true,
   "scripts": {
-    "fastapi-dev": "poetry install && python -m modal serve arcan",
-    "next-dev": "next dev",
-    "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
+    "modal-serve-arcan": "poetry install && python -m modal serve arcan",
+    "dev": "next dev",
+    "api-dev": "concurrently \"npm run next-dev\" \"npm run modal-serve-arcan\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
