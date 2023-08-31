@@ -8,9 +8,9 @@ import type { AgentStep } from "langchain/schema";
 import type { FormEvent } from "react";
 import { ReactElement, useRef, useState } from "react";
 
-import { ChatMessageBubble } from "@/app/spells_studio/components/ChatMessageBubble";
-import { UploadDocumentsForm } from "@/app/spells_studio/components/UploadDocumentsForm";
+import { ChatMessageBubble } from "./ChatMessageBubble";
 import { IntermediateStep } from "./IntermediateStep";
+import { UploadDocumentsForm } from "./UploadDocumentsForm";
 
 export function ChatWindow(props: {
   endpoint: string,
@@ -117,7 +117,7 @@ export function ChatWindow(props: {
 
       {messages.length === 0 && ingestForm}
 
-      <form onSubmit={sendMessage} className="flex w-full flex-col">
+      <form onSubmit={sendMessage} className="flex w-full flex-col color black">
         <div className="flex">
           {intemediateStepsToggle}
         </div>

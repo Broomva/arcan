@@ -1,10 +1,10 @@
-import './globals.css'
 import { Inter } from 'next/font/google'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'arcan.ai',
+  title: 'Arcan AI',
   description: "A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools",
 }
 

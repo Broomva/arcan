@@ -2,9 +2,9 @@ import { ChatWindow } from "@/app/spells_studio/components/ChatWindow";
 
 export default function Chat() {
   const InfoCard = (
-    <div className="p-4 md:p-8 rounded bg-[#25252d] w-full max-h-[85%] overflow-hidden">
+    <div className="p-4 md:p-8 rounded w-full max-h-[85%] overflow-hidden">
       <h1 className="text-3xl md:text-4xl mb-4">
-        ▲ Next.js + LangChain.js 🦜🔗
+        Arcan AI Chat 🪄
       </h1>
       <ul>
         <li className="text-l">
