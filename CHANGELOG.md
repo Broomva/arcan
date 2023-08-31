@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.5.0](https://github.com/Broomva/arcan/compare/v1.4.0...v1.5.0) (2023-08-31)
+
+
+### Features
+
+* integrated working chat leveraging https://github.com/langchain-ai/langchain-nextjs-template ([e8edbda](https://github.com/Broomva/arcan/commit/e8edbdab21b6a251dac8b3050691bfea0cd86d3e))
+
+
+### Bug Fixes
+
+* add arcan logo and renamed text in various pages ([874e346](https://github.com/Broomva/arcan/commit/874e346d6a9faa1875b24143660c59c1f31ba1c7))
+* added openai costs callback ([cfab27b](https://github.com/Broomva/arcan/commit/cfab27b1d2516a3707063cac784685e52daf313d))
+* included arcan favicon and updated loading screen ([93c87ce](https://github.com/Broomva/arcan/commit/93c87cebd1a2f2383286cb8b4b6e5162bc11add8))
+* linting ([df8ec0c](https://github.com/Broomva/arcan/commit/df8ec0c3d9cb404e3d0ef7d3a517c0bab4fca53c))
+
 ## [1.4.0](https://github.com/Broomva/arcan/compare/v1.3.9...v1.4.0) (2023-08-08)
 
 
