@@ -100,9 +100,10 @@ def main(prompt: str = default_prompt):
         print(part, end="")
 
 
-
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.llms import OpenAI
 
-llm = OpenAI(streaming=True, callbacks=[StreamingStdOutCallbackHandler()], temperature=0)
+llm = OpenAI(
+    streaming=True, callbacks=[StreamingStdOutCallbackHandler()], temperature=0
+)
 resp = llm("Write me a song about sparkling water.")

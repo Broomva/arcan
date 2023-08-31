@@ -23,7 +23,6 @@ def requires_auth(func):
     return wrapper
 
 
-import logging
 from functools import wraps
 
 from fastapi import Request
@@ -34,6 +33,9 @@ def log_endpoint(func):
     def wrapper(request: Request, *args, **kwargs):
         client_host = request.client.host
         client_user_agent = request.headers.get("user-agent")
-        print(f"Endpoint hit with query: {kwargs['query']}, context_url: {kwargs['context_url']}, client_host: {client_host}, client_user_agent: {client_user_agent}")
+        print(
+            f"Endpoint hit with query: {kwargs['query']}, context_url: {kwargs['context_url']}, client_host: {client_host}, client_user_agent: {client_user_agent}"
+        )
         return func(request, *args, **kwargs)
+
     return wrapper
