@@ -1,5 +1,6 @@
 # %%
-from fastapi import Depends, Request
+from fastapi import Depends
+# from fastapi.responses import StreamingResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from modal import Image, Secret, Stub, web_endpoint
 
@@ -7,7 +8,7 @@ from arcan.agent.chains import ArcanConversationChain
 from arcan.agent.scrapping import url_text_scrapper
 from arcan.agent.vectorstores import (faiss_text_index_loader,
                                       load_faiss_vectorstore)
-from arcan.session.auth import log_endpoint, requires_auth
+from arcan.session.auth import requires_auth
 
 auth_scheme = HTTPBearer()
 
@@ -96,6 +97,7 @@ def text_chat(
     context_url: str,
     token: HTTPAuthorizationCredentials = Depends(auth_scheme),
 ):
+    #answer = StreamingResponse(url_text_scrapping_chain(query=query, url=context_url), media_type="text/event-stream")
     answer = url_text_scrapping_chain(query=query, url=context_url)
     return {
         "answer": answer,

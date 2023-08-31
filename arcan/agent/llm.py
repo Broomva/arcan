@@ -1,7 +1,9 @@
-from typing import Union, Dict, Callable
-from pydantic import BaseModel
-from langchain.chat_models import ChatOpenAI
 import os
+from typing import Callable, Dict, Union
+
+# from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain.chat_models import ChatOpenAI
+from pydantic import BaseModel
 
 
 class LLM(BaseModel):
@@ -23,6 +25,8 @@ class LLMFactory:
             openai_api_key=kwargs.get(
                 "openai_api_key", os.environ.get("OPENAI_API_KEY")
             ),
+            # streaming=kwargs.get("streaming", True),
+            # callbacks=[StreamingStdOutCallbackHandler()]
         ),
     }
 
