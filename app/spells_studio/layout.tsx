@@ -1,47 +1,56 @@
-import "app/globals.css";
-import { Public_Sans } from "next/font/google";
+import { Metadata } from 'next'
 
-import { AuthContextProvider } from '@/app/context/auth';
-import { Navbar } from "@/app/spells_studio/components/Navbar";
+import { Toaster } from 'react-hot-toast'
 
-const publicSans = Public_Sans({ subsets: ["latin"] });
+import '@/app/globals.css'
+import { fontMono, fontSans } from '@/lib/fonts'
+import { cn } from '@/lib/utils'
+import { TailwindIndicator } from '@/components/tailwind-indicator'
+import { Providers } from '@/components/providers'
+import { Header } from '@/components/header'
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const metadata: Metadata = {
+  title: {
+    default: 'Next.js AI Chatbot',
+    template: `%s - Next.js AI Chatbot`
+  },
+  description: 'An AI-powered chatbot template built with Next.js and Vercel.',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' }
+  ],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png'
+  }
+}
+
+interface RootLayoutProps {
+  children: React.ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <AuthContextProvider>
-        <html lang="en">
-          <head>
-            <title>Arcan Spells Studio</title>
-            {/* <link rel="shortcut icon" href="../favicon.ico" /> */}
-            <meta
-              name="description"
-              content="Starter template showing how to use LangChain in Next.js projects. See source code and deploy your own at https://github.com/langchain-ai/langchain-nextjs-template!"
-            />
-            <meta property="og:title" content="Arcan Spells Studio" />
-            <meta
-              property="og:description"
-              content="Starter template showing how to use LangChain in Next.js projects. See source code and deploy your own at https://github.com/langchain-ai/langchain-nextjs-template!"
-            />
-            <meta property="og:image" content="/images/og-image.png" />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Arcan Spells Studio" />
-            <meta
-              name="twitter:description"
-              content="Starter template showing how to use LangChain in Next.js projects. See source code and deploy your own at https://github.com/langchain-ai/langchain-nextjs-template!"
-            />
-            <meta name="twitter:image" content="/images/og-image.png" />
-          </head>
-          <body className={publicSans.className}>
-            <div className="flex flex-col p-4 md:p-12 h-[100vh]">
-              <Navbar></Navbar>
-              {children}
-            </div>
-          </body>
-        </html>
-    </AuthContextProvider>
-  );
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          'font-sans antialiased',
+          fontSans.variable,
+          fontMono.variable
+        )}
+      >
+        <Toaster />
+        <Providers attribute="class" defaultTheme="system" enableSystem>
+          <div className="flex flex-col min-h-screen">
+            {/* @ts-ignore */}
+            <Header />
+            <main className="flex flex-col flex-1 bg-muted/50">{children}</main>
+          </div>
+          <TailwindIndicator />
+        </Providers>
+      </body>
+    </html>
+  )
 }
