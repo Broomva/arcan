@@ -1,4 +1,5 @@
 import { auth } from '@/app/spells_studio/auth'
+import { Header } from '@/components/header'
 import { LoginButton } from '@/components/login-button'
 import { redirect } from 'next/navigation'
 
@@ -9,8 +10,14 @@ export default async function SignInPage() {
     redirect('/')
   }
   return (
-    <div className="flex h-[calc(100vh-theme(spacing.16))] items-center justify-center py-10">
-      <LoginButton />
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-1">
+
+      <div className="flex h-[calc(100vh-theme(spacing.16))] items-center justify-center py-10">
+        <LoginButton />
+      </div>
+      </main>
     </div>
   )
 }

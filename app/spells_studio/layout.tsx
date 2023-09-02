@@ -3,6 +3,7 @@ import { Providers } from '@/components/providers'
 import { fontMono, fontSans } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 import { Metadata } from 'next'
+import { Toaster } from 'react-hot-toast'
 // import { TailwindIndicator } from '@/components/tailwind-indicator'
 
 export const metadata: Metadata = {
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png'
+    shortcut: '/arcan_logo.png',
+    apple: '/arcan_logo.png'
   }
 }
 
@@ -37,7 +38,7 @@ export default function ChatLayout({ children }: RootLayoutProps) {
           fontMono.variable
         )}
       >
-        {/* <Toaster /> */}
+        <Toaster />
         <Providers attribute="class" defaultTheme="system" enableSystem>
           <div className="flex flex-col min-h-screen">
             {/* @ts-ignore */}

@@ -54,7 +54,7 @@ export function PromptForm({
               onClick={e => {
                 e.preventDefault()
                 router.refresh()
-                router.push('/')
+                router.push('/spells_studio/')
               }}
               className={cn(
                 buttonVariants({ size: 'sm', variant: 'outline' }),

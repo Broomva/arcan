@@ -33,7 +33,7 @@ export default async function ChatPage({ params }: ChatPageProps) {
   const session = await auth()
 
   if (!session?.user) {
-    redirect(`spells_studio//sign-in?next=/spells_studio/chat/${params.id}`)
+    redirect(`/spells_studio/sign-in?next=/spells_studio/chat/${params.id}`)
   }
 
   const chat = await getChat(params.id, session.user.id)
