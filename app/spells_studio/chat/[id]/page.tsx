@@ -1,8 +1,8 @@
 import { type Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
+import { auth } from '@/app/auth/auth'
 import { getChat } from '@/app/spells_studio/actions'
-import { auth } from '@/app/spells_studio/auth'
 import { Chat } from '@/components/chat'
 
 export const runtime = 'edge'

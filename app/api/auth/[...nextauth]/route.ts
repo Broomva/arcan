@@ -1,2 +1,2 @@
-export { GET, POST } from '@/app/spells_studio/auth'
+export { GET, POST } from '@/app/auth/auth'
 export const runtime = 'edge'

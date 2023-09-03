@@ -13,6 +13,7 @@ export async function SidebarList({ userId }: SidebarListProps) {
     <div className="flex-1 overflow-auto">
       {chats?.length ? (
         <div className="space-y-2 px-2">
+          <p className="text-sm text-muted-foreground">Chat History</p>
           {chats.map(
             chat =>
               chat && (

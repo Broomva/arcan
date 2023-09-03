@@ -1,8 +1,10 @@
+import { auth } from '@/app/auth/auth'
 import '@/app/globals.css'
 import { Providers } from '@/components/providers'
 import { fontMono, fontSans } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 import { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 import { Toaster } from 'react-hot-toast'
 // import { TailwindIndicator } from '@/components/tailwind-indicator'
 
@@ -27,7 +29,12 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default function ChatLayout({ children }: RootLayoutProps) {
+export default async function ChatLayout({ children }: RootLayoutProps) {
+  const session = await auth()
+  // redirect to home if user is already logged in
+  if (!session?.user) {
+    redirect('/auth/sign-in')
+  }
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
