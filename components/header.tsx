@@ -4,7 +4,7 @@ import * as React from 'react'
 import { auth } from '@/app/auth/auth'
 import { clearChats } from '@/app/spells_studio/actions'
 import { ClearHistory } from '@/components/clear-history'
-import { LoginButton } from '@/components/login-button'
+import { GithubLoginButton } from '@/components/login-button'
 import { LogoutButton } from '@/components/logout-button'
 import { Sidebar } from '@/components/sidebar'
 import { SidebarFooter } from '@/components/sidebar-footer'
@@ -106,7 +106,7 @@ export async function Header() {
             
             <SidebarFooter>
               <ThemeToggle />
-              <LoginButton />
+              <GithubLoginButton />
             </SidebarFooter>
             
           </Sidebar>

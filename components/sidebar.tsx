@@ -27,7 +27,9 @@ export function Sidebar({ children }: SidebarProps) {
       </SheetTrigger>
       <SheetContent className="inset-y-0 flex h-auto w-[300px] flex-col p-0">
         <SheetHeader className="p-4">
+        <a href="/">
           <SheetTitle className="text-sm">Arcan</SheetTitle>
+        </a>
         </SheetHeader>
         {children}
       </SheetContent>
