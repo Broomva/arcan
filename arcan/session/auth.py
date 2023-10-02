@@ -10,8 +10,6 @@ security = HTTPBearer()
 def requires_auth(func):
     @wraps(func)
     def wrapper(*args, token: HTTPAuthorizationCredentials = security, **kwargs):
-
-
         if token.credentials != os.environ["AUTH_TOKEN"]:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
@@ -27,14 +25,13 @@ def requires_auth(func):
 def aio_requires_auth(func):
     @wraps(func)
     async def wrapper(*args, token: HTTPAuthorizationCredentials = None, **kwargs):
-
         if token is None or token.credentials != os.environ["AUTH_TOKEN"]:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Incorrect bearer token",
                 headers={"WWW-Authenticate": "Bearer"},
             )
-        
+
         return await func(*args, **kwargs)
 
     return wrapper

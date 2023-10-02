@@ -15,12 +15,13 @@ from arcan.agent.parser import ArcanOutputParser
 class Query(BaseModel):
     text: str
 
+
 class ArcanConversationAgent:
     def __init__(self, **kwargs):
         self.kwargs = kwargs
         self.llm = LLM().llm
         self.embeddings = OpenAIEmbeddings()
-        self.memory = ConversationBufferMemory( #ConversationBufferWindowMemory k=10
+        self.memory = ConversationBufferMemory(  # ConversationBufferWindowMemory k=10
             memory_key="chat_history", return_messages=True, output_key="output"
         )
         self.tools = load_tools(["llm-math"], llm=self.llm)
@@ -33,19 +34,21 @@ class ArcanConversationAgent:
             early_stopping_method="generate",
             memory=self.memory,
             return_intermediate_steps=True,
-            agent_kwargs={'output_parser':ArcanOutputParser()}
+            agent_kwargs={"output_parser": ArcanOutputParser()}
             # output_parser=ArcanOutputParser
         )
 
+
 async def run_call(query: str, stream_it: AsyncIteratorCallbackHandler, agent):
-    try:    
+    try:
         # assign callback handler
         agent.agent.llm_chain.llm.callbacks = [stream_it]
         # now query
         await agent.acall(inputs={"input": query})
     except Exception as e:
-        print(f'run_call {e}')
-        raise(e)
+        print(f"run_call {e}")
+        raise (e)
+
 
 async def create_gen(query: str, stream_it: AsyncIteratorCallbackHandler, agent):
     try:
@@ -58,11 +61,12 @@ async def create_gen(query: str, stream_it: AsyncIteratorCallbackHandler, agent)
         yield str(e)
         raise e
 
-async def agent_chat(text:str, agent):#query: Query = Body(...),):
-    stream_it = AsyncIteratorCallbackHandler() #AsyncCallbackHandler()
+
+async def agent_chat(text: str, agent):  # query: Query = Body(...),):
+    stream_it = AsyncIteratorCallbackHandler()  # AsyncCallbackHandler()
     query = Query(text=text)
     try:
         gen = create_gen(query.text, stream_it, agent)
     except Exception as e:
-        raise(e)
+        raise (e)
     return StreamingResponse(gen, media_type="text/event-stream")

@@ -26,7 +26,7 @@ class LLMFactory:
                 "openai_api_key", os.environ.get("OPENAI_API_KEY")
             ),
             streaming=kwargs.get("streaming", True),
-            callbacks=[] #StreamingStdOutCallbackHandler()]
+            callbacks=[],  # StreamingStdOutCallbackHandler()]
         ),
     }
 

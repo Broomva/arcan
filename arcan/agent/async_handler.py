@@ -27,8 +27,6 @@ class AsyncCallbackHandler(AsyncIteratorCallbackHandler):
             self.content = ""
             self.done.set()
 
-
-
     # content: str = ""
     # final_answer: bool = False
 
@@ -42,7 +40,7 @@ class AsyncCallbackHandler(AsyncIteratorCallbackHandler):
     #     elif "Final Answer" in self.content:
     #         self.final_answer = True
     #         self.content = ""
-    
+
     # async def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
     #     if self.final_answer:
     #         self.content = ""

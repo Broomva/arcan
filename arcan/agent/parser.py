@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Union
 
 from langchain.agents import AgentOutputParser
+
 # from langchain.agents.conversational_chat.prompt import FORMAT_INSTRUCTIONS
 from langchain.output_parsers.json import parse_json_markdown
 from langchain.schema import AgentAction, AgentFinish, OutputParserException
@@ -51,7 +52,9 @@ class ArcanOutputParser(AgentOutputParser):
             # OutputParserException
             # formated_output = f'{{"action": "Final Answer"\n"action_input": " {str(text)} }}"'
             # return AgentFinish({"output": formated_output}, formated_output)
-            raise OutputParserException(f"Could not parse LLM output with default settings: {text}") from e
+            raise OutputParserException(
+                f"Could not parse LLM output with default settings: {text}"
+            ) from e
 
     @property
     def _type(self) -> str:

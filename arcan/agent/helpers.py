@@ -10,14 +10,11 @@ from langchain.schema.output import LLMResult
 # from langchain.callbacks.streaming_aiter import AsyncIteratorCallbackHandler
 
 
-
-
-
 def get_stream_response(
-        url: str = 'https://arcan-chat.arcanai.tech',
-        query: str = 'Hi',
-        headers: dict = None
-    ):
+    url: str = "https://arcan-chat.arcanai.tech",
+    query: str = "Hi",
+    headers: dict = None,
+):
     session = requests.Session()
     with session.get(
         f"{url}?query={query}",
@@ -28,11 +25,10 @@ def get_stream_response(
             print(line.decode("utf-8"), end="")
 
 
-
 # class AsyncCallbackHandler(AsyncIteratorCallbackHandler):
 #     content: str = ""
 #     finished: bool = False
-    
+
 #     async def on_llm_new_token(self, token: str, **kwargs: Any) -> None:
 #         self.content += token
 
@@ -44,17 +40,17 @@ def get_stream_response(
 #         elif self.finished and '"action_input": "' in self.content:
 #             if token not in ['"', "}"]:
 #                 self.queue.put_nowait(token)
-            
-    
+
+
 #     async def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
 #         if self.finished:
 #             self.done.set()
 #             self.finished = False
-            
 
 
 class AsyncIteratorCallbackHandler(AsyncCallbackHandler):
     """Callback handler that returns an async iterator."""
+
     content: str = ""
     finished: bool = False
     queue: asyncio.Queue[str]
@@ -85,8 +81,7 @@ class AsyncIteratorCallbackHandler(AsyncCallbackHandler):
         elif self.finished and '"action_input": "' in self.content:
             if token not in ['"', "}"]:
                 self.queue.put_nowait(token)
-            
-    
+
     async def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
         if self.finished:
             self.done.set()
@@ -126,5 +121,5 @@ class AsyncIteratorCallbackHandler(AsyncCallbackHandler):
                 # Otherwise, the extracted value is a token, which we yield
                 yield token_or_done
         except Exception as e:
-            print(f'aiter error {e}')
+            print(f"aiter error {e}")
             raise e
