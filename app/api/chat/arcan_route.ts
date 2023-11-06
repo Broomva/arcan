@@ -2,6 +2,7 @@ import { StreamingTextResponse } from 'ai'
 import { Configuration, OpenAIApi } from 'openai-edge'
 
 import { auth } from '@/app/auth/auth'
+import { nanoid } from '@/lib/utils'
 
 export const runtime = 'edge'
 
@@ -26,13 +27,13 @@ export async function POST(req: Request) {
         configuration.apiKey = previewToken
     }
 
-    const query = messages.map((message) => message.content).join(' ')
+    const query = messages.map((message:any) => message.content).join(' ')
     const url = `https://arcan-chat.arcanai.tech?query=${query}`
     const headers = {
         Authorization: `Bearer`
     }
 
-    const res = await fetch(url, { headers })
+    const res = await fetch(url, { headers })?.then((res) => res.json())
 
     // Check for a valid response
     if (!res.ok) {
