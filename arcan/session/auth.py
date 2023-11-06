@@ -1,6 +1,7 @@
+import os
 from functools import wraps
 
-from fastapi import HTTPException, status
+from fastapi import HTTPException, Request, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 security = HTTPBearer()
@@ -9,8 +10,6 @@ security = HTTPBearer()
 def requires_auth(func):
     @wraps(func)
     def wrapper(*args, token: HTTPAuthorizationCredentials = security, **kwargs):
-        import os
-
         if token.credentials != os.environ["AUTH_TOKEN"]:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
@@ -23,9 +22,19 @@ def requires_auth(func):
     return wrapper
 
 
-from functools import wraps
+def aio_requires_auth(func):
+    @wraps(func)
+    async def wrapper(*args, token: HTTPAuthorizationCredentials = None, **kwargs):
+        if token is None or token.credentials != os.environ["AUTH_TOKEN"]:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Incorrect bearer token",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
 
-from fastapi import Request
+        return await func(*args, **kwargs)
+
+    return wrapper
 
 
 def log_endpoint(func):

@@ -4,13 +4,20 @@ from fastapi import Depends
 # from fastapi.responses import StreamingResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from modal import Image, Secret, Stub, web_endpoint
+from pydantic import BaseModel
 
+from arcan.agent.agents import ArcanConversationAgent, agent_chat
 from arcan.agent.chains import ArcanConversationChain
 from arcan.agent.scrapping import url_text_scrapper
 from arcan.agent.vectorstores import faiss_text_index_loader, load_faiss_vectorstore
-from arcan.session.auth import requires_auth
+from arcan.session.auth import aio_requires_auth, requires_auth
 
 auth_scheme = HTTPBearer()
+
+
+# request input format
+class Query(BaseModel):
+    text: str
 
 
 __version__ = "1.5.0"
@@ -102,6 +109,19 @@ def text_chat(
     return {
         "answer": answer,
     }
+
+
+agent = ArcanConversationAgent().agent
+
+
+@stub.function(secret=Secret.from_name("web-auth-token"), timeout=60)
+@web_endpoint(method="GET", custom_domains=["arcan-chat.arcanai.tech"])
+@aio_requires_auth
+async def arcan_chat(
+    query: str,
+    token: HTTPAuthorizationCredentials = Depends(auth_scheme),
+):
+    return await agent_chat(query, agent)
 
 
 # @stub.function()

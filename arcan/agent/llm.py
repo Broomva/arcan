@@ -20,13 +20,13 @@ class LLM(BaseModel):
 class LLMFactory:
     provider_map: Dict[str, Callable[..., Union[ChatOpenAI, str, int, float]]] = {
         "ChatOpenAI": lambda **kwargs: ChatOpenAI(
-            temperature=kwargs.get("temperature", 0),
+            temperature=kwargs.get("temperature", 0.7),
             model_name=kwargs.get("model", "gpt-3.5-turbo"),
             openai_api_key=kwargs.get(
                 "openai_api_key", os.environ.get("OPENAI_API_KEY")
             ),
-            # streaming=kwargs.get("streaming", True),
-            # callbacks=[StreamingStdOutCallbackHandler()]
+            streaming=kwargs.get("streaming", True),
+            callbacks=[],  # StreamingStdOutCallbackHandler()]
         ),
     }
 

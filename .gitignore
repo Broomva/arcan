@@ -17,6 +17,9 @@ build
 .DS_Store
 *.pem
 
+# pycache folders
+**/__pycache__/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
