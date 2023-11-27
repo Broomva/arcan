@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.6.0](https://github.com/Broomva/arcan/compare/v1.5.0...v1.6.0) (2023-11-27)
+
+
+### Features
+
+* added python streaming agent with tested modal deployment ([5efdf1f](https://github.com/Broomva/arcan/commit/5efdf1f9719db946954b9839ba419a6450f9c253))
+
+
+### Bug Fixes
+
+* added google auth ([e502a0d](https://github.com/Broomva/arcan/commit/e502a0d3bd870a53887777f9d0ffb86854b32b2a))
+* added navigation options and flow control for access ([d12c7ad](https://github.com/Broomva/arcan/commit/d12c7adaac6b807b7c023d4ffe561bda8c6d437d))
+* added new chat page based on https://github.com/vercel-labs/ai-chatbot ([12c7389](https://github.com/Broomva/arcan/commit/12c73892c42620c88af6086cc48bc838b857f494))
+* corrected arcan_route typing ([fbe70ef](https://github.com/Broomva/arcan/commit/fbe70ef699fd2d5dff683915bbd0f505886023fd))
+* corrected build ([5554d7c](https://github.com/Broomva/arcan/commit/5554d7c74145404650b4b5760cb14a8d2dcb84e6))
+* created sample arcan route which uses the arcan agent to send a message to the arcan server ([69f2dd8](https://github.com/Broomva/arcan/commit/69f2dd8279231cca6644d9704688767e810d0992))
+* fixed share path ([97b48bb](https://github.com/Broomva/arcan/commit/97b48bb7698467b1e516dff301629e2a2b280b67))
+* formatted with black ([e0cbd17](https://github.com/Broomva/arcan/commit/e0cbd177086606f2e63c2c6bac7acc6c52445160))
+* modifications to header and routes ([1e6d87a](https://github.com/Broomva/arcan/commit/1e6d87ae6a0bd03b433726cc3bec8599d77b7791))
+* moved header to root layout ([4da43af](https://github.com/Broomva/arcan/commit/4da43af1a7d00ef603eedf577667d2efb0823cd5))
+* remove opengraph-image.tsx ([0f28972](https://github.com/Broomva/arcan/commit/0f28972c4c1b2af9dadf8dc8fc9913a6937450fb))
+* removed __pycache__ ([1c42a4f](https://github.com/Broomva/arcan/commit/1c42a4f4720611b0ece1d61e6b816a873f49982c))
+* removed pycache ([81aaff7](https://github.com/Broomva/arcan/commit/81aaff77a138cf10afd3c063732e0d16a778e003))
+
 ## [1.5.0](https://github.com/Broomva/arcan/compare/v1.4.0...v1.5.0) (2023-08-31)
 
 
