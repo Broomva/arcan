@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "arcan"
-version = "1.5.0"
+version = "1.6.0"
 description = "A multiheaded modern data bridging package based on pipeline manifests to integrate between any modern (and old) data stack tools"
 authors = ["Carlos D. Escobar-Valbuena <carlosdavidescobar@gmail.com>"]
 license = "arcan.ai Non-Commercial Open Source License"
