@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Arcan Flows',
-  description: 'Versatile Orchestrated Execution Engine for Data and AI Pipelines',
+  description: 'AI web3 tooling platform for the decentralized customization and enhancement of AI agents,
 }
 
 export default function RootLayout({
