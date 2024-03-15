@@ -2015,22 +2015,6 @@ files = [
 ]
 
 [[package]]
-name = "mistralai"
-version = "0.0.12"
-description = ""
-optional = false
-python-versions = ">=3.8,<4.0"
-files = [
-    {file = "mistralai-0.0.12-py3-none-any.whl", hash = "sha256:d489d1f0a31bf0edbe15c6d12f68b943148d2a725a088be0d8a5d4c888f8436c"},
-    {file = "mistralai-0.0.12.tar.gz", hash = "sha256:fe652836146a15bdce7691a95803a32c53c641c5400093447ffa93bf2ed296b2"},
-]
-
-[package.dependencies]
-httpx = ">=0.25.2,<0.26.0"
-orjson = ">=3.9.10,<4.0.0"
-pydantic = ">=2.5.2,<3.0.0"
-
-[[package]]
 name = "mmh3"
 version = "4.1.0"
 description = "Python extension for MurmurHash (MurmurHash3), a set of fast and robust hash functions."
@@ -3932,13 +3916,13 @@ urllib3 = {version = ">=1.26,<3", extras = ["socks"]}
 
 [[package]]
 name = "semantic-router"
-version = "0.0.27"
+version = "0.0.28"
 description = "Super fast semantic router for AI decision making"
 optional = false
 python-versions = ">=3.9,<3.13"
 files = [
-    {file = "semantic_router-0.0.27-py3-none-any.whl", hash = "sha256:ace7a0fd7913fc53303290cbe5b5420c61393342f3b0ab72d5bdef708d0fec42"},
-    {file = "semantic_router-0.0.27.tar.gz", hash = "sha256:0e610a6d126ed8565a812d2edcae74a9bbaceed5f640500b089ad269c448bc0a"},
+    {file = "semantic_router-0.0.28-py3-none-any.whl", hash = "sha256:74b2928b50a21f27830ce7fde61dcb5636c16d307409af9e1fccc37b20a91953"},
+    {file = "semantic_router-0.0.28.tar.gz", hash = "sha256:1ea0024171890c1a7b91e1d48db75f54b02870f1d8dd0cd73afb19f437f29b73"},
 ]
 
 [package.dependencies]
@@ -3946,7 +3930,6 @@ black = ">=23.12.1,<24.0.0"
 cohere = ">=4.32,<5.0"
 colorama = ">=0.4.6,<0.5.0"
 colorlog = ">=6.8.0,<7.0.0"
-mistralai = ">=0.0.12,<0.0.13"
 numpy = ">=1.25.2,<2.0.0"
 openai = ">=1.10.0,<2.0.0"
 pydantic = ">=2.5.3,<3.0.0"
@@ -3955,9 +3938,10 @@ regex = ">=2023.12.25,<2024.0.0"
 tiktoken = ">=0.6.0,<0.7.0"
 
 [package.extras]
-fastembed = ["fastembed (>=0.1.3,<0.2.0)"]
+fastembed = ["fastembed (>=0.2.4,<0.3.0)"]
 hybrid = ["pinecone-text (>=0.7.1,<0.8.0)"]
 local = ["llama-cpp-python (>=0.2.28,<0.3.0)", "torch (>=2.1.0,<3.0.0)", "transformers (>=4.36.2,<5.0.0)"]
+mistralai = ["mistralai (>=0.0.12,<0.0.13)"]
 pinecone = ["pinecone-client (>=3.0.0,<4.0.0)"]
 processing = ["matplotlib (>=3.8.3,<4.0.0)"]
 vision = ["pillow (>=10.2.0,<11.0.0)", "torch (>=2.1.0,<3.0.0)", "torchvision (>=0.17.0,<0.18.0)", "transformers (>=4.36.2,<5.0.0)"]
@@ -5202,4 +5186,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "33c1ab0a7b451ee1b20d666b9b884991a1a51cd965c25226dde7a3ca15cde528"
+content-hash = "890dc0646ac29054797d233b8681647114c6d49feddf6b42a75f811fb0d1ccba"

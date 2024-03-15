@@ -37,7 +37,7 @@ langchain-experimental = "^0.0.54"
 langchain-community = "^0.0.28"
 langchain-together = "^0.0.2.post1"
 langchain-fireworks = "^0.1.1"
-semantic-router = "^0.0.27"
+semantic-router = "^0.0.28"
 modal = "^0.61.53"
 typer = "^0.9.0"
 
