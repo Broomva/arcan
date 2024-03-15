@@ -8,10 +8,12 @@ __version__ = "0.0.1"
 def get_arcan_version():
     try:
         import arcan
+
         return arcan.__version__
     except Exception as e:
         print(e)
         return "No arcan package is installed"
+
 
 @cli.callback()
 def callback():
@@ -19,11 +21,13 @@ def callback():
     Arcan AI CLI
     """
 
+
 @cli.command()
 def status():
     message = "Arcan is running"
     echo(message)
     return {"message": message}
+
 
 @cli.command()
 def version():
@@ -35,9 +39,11 @@ def version():
 def url_text_scrapping_chain(query: str, url: str) -> tuple[str, list[str]]:
     from arcan.ai.chains import ArcanConversationChain
     from arcan.spells.scrapping import url_text_scrapper
-    from arcan.spells.vector_search import (faiss_text_index_loader,
-                                            load_faiss_vectorstore)
-    
+    from arcan.spells.vector_search import (
+        faiss_text_index_loader,
+        load_faiss_vectorstore,
+    )
+
     chain = ArcanConversationChain()
     docsearch = None
     job_domain = None
@@ -78,5 +84,6 @@ async def chat_agent(
     # token: HTTPAuthorizationCredentials = Depends(auth_scheme),
 ):
     from arcan.ai.agents import ArcanConversationAgent, agent_chat
+
     agent = ArcanConversationAgent().agent
     return await agent_chat(query, agent)

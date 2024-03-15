@@ -10,13 +10,12 @@ from typing import Dict
 
 from fastapi.responses import StreamingResponse
 from langchain.agents import AgentExecutor, load_tools
-from langchain.agents.format_scratchpad.openai_tools import \
-    format_to_openai_tool_messages
-from langchain.agents.output_parsers.openai_tools import \
-    OpenAIToolsAgentOutputParser
+from langchain.agents.format_scratchpad.openai_tools import (
+    format_to_openai_tool_messages,
+)
+from langchain.agents.output_parsers.openai_tools import OpenAIToolsAgentOutputParser
 from langchain.sql_database import SQLDatabase
-from langchain_community.agent_toolkits import (FileManagementToolkit,
-                                                SQLDatabaseToolkit)
+from langchain_community.agent_toolkits import FileManagementToolkit, SQLDatabaseToolkit
 from langchain_core.messages import AIMessage, HumanMessage
 from sqlalchemy.dialects.postgresql import insert
 
@@ -129,7 +128,6 @@ class ArcanAgent:
             ]
         )
         return response["output"]
-    
 
 
 class ArcanSession:
@@ -245,7 +243,7 @@ class ArcanSession:
         return loaded
 
 
-#%%
+# %%
 #
 
 from langchain.agents import AgentType, initialize_agent, load_tools
@@ -274,13 +272,14 @@ class ArcanConversationAgent:
             early_stopping_method="generate",
             memory=self.memory,
             return_intermediate_steps=True,
-            agent_kwargs={"output_parser": ArcanOutputParser()}
+            agent_kwargs={"output_parser": ArcanOutputParser()},
             # output_parser=ArcanOutputParser
         )
 
 
 class Query(BaseModel):
     text: str
+
 
 async def run_call(query: str, stream_it: AsyncIteratorCallbackHandler, agent):
     try:

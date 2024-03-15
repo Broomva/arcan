@@ -16,9 +16,12 @@ load_dotenv()
 
 app = FastAPI()
 
+
 @app.get("/")
 def default():
-    return {"message": "Check out the API documentation at http://arcanai.tech/api/docs"}
+    return {
+        "message": "Check out the API documentation at http://arcanai.tech/api/docs"
+    }
 
 
 @app.get("/api/check")

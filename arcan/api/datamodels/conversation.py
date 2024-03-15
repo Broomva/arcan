@@ -6,6 +6,7 @@ from arcan.api.datamodels import Base, engine
 
 Base.metadata.create_all(engine)
 
+
 class Conversation(Base):
     """
     Represents a conversation entity.

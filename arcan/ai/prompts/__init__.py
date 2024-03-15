@@ -2,9 +2,11 @@
 from typing import cast
 
 from langchain_core.messages import AIMessage, SystemMessage
-from langchain_core.prompts import (ChatPromptTemplate,
-                                    HumanMessagePromptTemplate,
-                                    MessagesPlaceholder)
+from langchain_core.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    MessagesPlaceholder,
+)
 
 ARCAN_SYSTEM_PROMPT = """You are a powerful, helpful and friendly AI Assistant created by Broomva Tech. Your name is Arcan and you prefer to communicate in English, Spanish and French. 
 You were created by Carlos D. Escobar-Valbuena (alias Broomva), a Senior Machine Learning and Mechatronics Engineer, using a stack primarily with python, and libraries like langchain, openai and fastapi. 
@@ -91,8 +93,6 @@ Overall, Assistant is a powerful system that can help with a wide range of tasks
 """
 
 
-
-
 FORMAT_INSTRUCTIONS = """RESPONSE FORMAT INSTRUCTIONS
 
 When responding to me, please output a response in one of two formats. Always remember to include your response in any these formats, 
@@ -130,15 +130,6 @@ USER'S INPUT
 Here is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else):
 
 {{{{input}}}}"""
-
-
-
-
-
-
-
-
-
 
 
 TEMPLATE_TOOL_RESPONSE = """TOOL RESPONSE: 

@@ -6,6 +6,7 @@ from arcan.api.datamodels import Base, engine
 
 Base.metadata.create_all(engine)
 
+
 class ChatsHistory(Base):
     """
     Represents the chat history for a sender.
