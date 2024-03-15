@@ -7,7 +7,7 @@ from langchain.agents import AgentOutputParser
 from langchain.output_parsers.json import parse_json_markdown
 from langchain.schema import AgentAction, AgentFinish, OutputParserException
 
-from arcan.agent.prompt import FORMAT_INSTRUCTIONS
+from arcan.ai.prompts import FORMAT_INSTRUCTIONS
 
 
 # Define a class that parses output for conversational agents

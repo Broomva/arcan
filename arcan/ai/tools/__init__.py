@@ -7,8 +7,8 @@ from langchain_community.utilities import WikipediaAPIWrapper
 from langchain_core.utils.function_calling import convert_to_openai_function
 from langchain_experimental.utilities import PythonREPL
 
-from arcan.ai.tools.scrapping import scrape_website, scrape_website_selenium
-from arcan.ai.tools.search import serper_api_search
+from arcan.spells.scrapping import scrape_website, scrape_website_selenium
+from arcan.spells.search import serper_api_search
 
 load_dotenv()
 

@@ -1,87 +1,59 @@
-# %%
-from fastapi import Depends
-# from fastapi.responses import StreamingResponse
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-from modal import Image, Secret, Stub, web_endpoint
-from pydantic import BaseModel
 
-from arcan.ai.agents import ArcanConversationAgent, agent_chat
-from arcan.ai.chains import ArcanConversationChain
-from arcan.api.session.auth import aio_requires_auth, requires_auth
-from arcan.spells.scrapping import url_text_scrapper
-from arcan.spells.vector_search import (faiss_text_index_loader,
-                                        load_faiss_vectorstore)
+from fastapi import Depends, FastAPI
+# from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from typer import Typer, echo
 
-auth_scheme = HTTPBearer()
+# from arcan.api.session.auth import requires_auth
 
 
-# request input format
-class Query(BaseModel):
-    text: str
+
+# auth_scheme = HTTPBearer()
+api = FastAPI()
+cli = Typer()
 
 
-__version__ = "1.5.0"
+__version__ = "0.0.1"
 
 
-# %%
 def get_arcan_version():
     try:
         import arcan
-
         return arcan.__version__
     except Exception as e:
         print(e)
         return "No arcan package is installed"
 
+@cli.callback()
+def callback():
+    """
+    Arcan AI CLI
+    """
 
-# %%
-image = Image.debian_slim().pip_install(
-    "fastapi",
-    "uvicorn",
-    "databricks_session",
-    "arcan",
-    # scraping pkgs
-    "beautifulsoup4",
-    "httpx",
-    "lxml",
-    # langchain pkgs
-    "faiss-cpu",
-    "langchain",
-    "openai",
-    "tiktoken",
-)
-# api = FastAPI()
-stub = Stub(
-    name="arcan",
-    image=image,
-    secrets=[Secret.from_name("openai-secret")],
-)
+@cli.command()
+@api.get("/")
+def status():
+    message = "Arcan is running"
+    echo(message)
+    return {"message": message}
 
-
-@stub.function()
-@web_endpoint(method="GET", custom_domains=["app.arcanai.tech"])
-# @api.get("/")
-def entrypoint():
-    return {"message": "Arcan is running"}
-
-
-@stub.function()
-@web_endpoint(method="GET", custom_domains=["version.arcanai.tech"])
-# @api.get("/api/version")
+@cli.command()
+@api.get("/api/version")
 def version():
-    print("Arcan is installed")
-    # return the installed version of Arcan package from the pyproject.toml file
-    version = get_arcan_version()
-    return {"message": f"Arcan version {version} is installed"}
+    message = f"Arcan version {get_arcan_version()} is installed"
+    echo(message)
+    return {"message": message}
 
-
-chain = ArcanConversationChain()
-docsearch = None
-job_domain = None
 
 
 def url_text_scrapping_chain(query: str, url: str) -> tuple[str, list[str]]:
-    global docsearch, job_domain, chain
+    from arcan.ai.chains import ArcanConversationChain
+    from arcan.spells.scrapping import url_text_scrapper
+    from arcan.spells.vector_search import (faiss_text_index_loader,
+                                            load_faiss_vectorstore)
+    
+    chain = ArcanConversationChain()
+    docsearch = None
+    job_domain = None
     print(docsearch, job_domain)
     text, current_domain = url_text_scrapper(url)
     if not docsearch and current_domain != job_domain:
@@ -96,13 +68,13 @@ def url_text_scrapping_chain(query: str, url: str) -> tuple[str, list[str]]:
     return chain.run(query, docsearch)
 
 
-@stub.function(secret=Secret.from_name("web-auth-token"))
-@web_endpoint(method="GET", custom_domains=["text-chat.arcanai.tech"])
-@requires_auth
-def text_chat(
+# @api.get("/api/text-chat")
+# @requires_auth
+@cli.command()
+def chat_chain(
     query: str,
     context_url: str,
-    token: HTTPAuthorizationCredentials = Depends(auth_scheme),
+    # token: HTTPAuthorizationCredentials = Depends(auth_scheme),
 ):
     # answer = StreamingResponse(url_text_scrapping_chain(query=query, url=context_url), media_type="text/event-stream")
     answer = url_text_scrapping_chain(query=query, url=context_url)
@@ -111,29 +83,13 @@ def text_chat(
     }
 
 
-agent = ArcanConversationAgent().agent
-
-
-@stub.function(secret=Secret.from_name("web-auth-token"), timeout=60)
-@web_endpoint(method="GET", custom_domains=["arcan-chat.arcanai.tech"])
-@aio_requires_auth
-async def arcan_chat(
+# @api.get("/api/arcan-chat")
+# @requires_auth
+@cli.command()
+async def chat_agent(
     query: str,
-    token: HTTPAuthorizationCredentials = Depends(auth_scheme),
+    # token: HTTPAuthorizationCredentials = Depends(auth_scheme),
 ):
+    from arcan.ai.agents import ArcanConversationAgent, agent_chat
+    agent = ArcanConversationAgent().agent
     return await agent_chat(query, agent)
-
-
-# @stub.function()
-# def qanda_cli(query: str, show_sources: bool = False, context_url: str = None):
-#     answer, sources = url_text_scrapping_chain(query=query, url=context_url)
-#     # Terminal codes for pretty-printing.
-#     bold, end = "\033[1m", "\033[0m"
-
-#     print(f"🦜 {bold}ANSWER:{end}")
-#     print(answer)
-#     if show_sources:
-#         print(f"🔗 {bold}SOURCES:{end}")
-#         for text in sources:
-#             print(text)
-#             print("----")
