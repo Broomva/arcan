@@ -1,0 +1,24 @@
+import Head from 'next/head';
+
+const flows = () => {
+    return (
+        <div style={{position: 'relative', height: 0, paddingBottom: '56.25%'}}>
+            <Head>
+                <title>Arcan Flows Embeded</title>
+            </Head>
+            <iframe
+                src="https://arcan-flows.brooma.tech/"
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: 'none'
+                }}
+            />
+        </div>
+    );
+};
+
+export default flows;
