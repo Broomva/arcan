@@ -1,7 +1,5 @@
 import { Header } from '@/components/header'
 import { Providers } from '@/components/providers'
-import { fontMono, fontSans } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
 import { Inter } from 'next/font/google'
 import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
@@ -21,11 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body
-        className={cn(
-          'font-sans antialiased',
-          fontSans.variable,
-          fontMono.variable
-        )}
+        // className={cn(
+        //   'font-sans antialiased',
+        //   fontSans.variable,
+        //   fontMono.variable
+        // )}
       >
         <Providers attribute="class" defaultTheme="system" enableSystem>
         <Header />

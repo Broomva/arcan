@@ -1,6 +1,6 @@
 # Arcan
 
-### AI web3 tooling platform for the decentralized customization and enhancement of AI agents
+### AI web3 tooling platform for decentralized customization and enhancement of AI agents
 
 Arcan is a web3 tooling platform designed to customize and enhance AI agents by leveraging blockchain technology. With Arcan, developers can securely tie AI personalization to user-owned blockchain profiles, ensuring privacy and control while delivering tailored AI interactions.
 
