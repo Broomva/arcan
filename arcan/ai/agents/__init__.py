@@ -10,18 +10,19 @@ from typing import Dict
 
 from fastapi.responses import StreamingResponse
 from langchain.agents import AgentExecutor, load_tools
-from langchain.agents.format_scratchpad.openai_tools import (
-    format_to_openai_tool_messages,
-)
-from langchain.agents.output_parsers.openai_tools import OpenAIToolsAgentOutputParser
+from langchain.agents.format_scratchpad.openai_tools import \
+    format_to_openai_tool_messages
+from langchain.agents.output_parsers.openai_tools import \
+    OpenAIToolsAgentOutputParser
 from langchain.sql_database import SQLDatabase
-from langchain_community.agent_toolkits import FileManagementToolkit, SQLDatabaseToolkit
+from langchain_community.agent_toolkits import (FileManagementToolkit,
+                                                SQLDatabaseToolkit)
 from langchain_core.messages import AIMessage, HumanMessage
 from sqlalchemy.dialects.postgresql import insert
 
 from arcan.ai.agents.helpers import AsyncIteratorCallbackHandler
 from arcan.ai.llm import LLM
-from arcan.ai.prompts import vortex_prompt
+from arcan.ai.prompts import arcan_prompt
 from arcan.ai.router import semantic_layer
 from arcan.ai.tools import tools as spells
 from arcan.api.datamodels.chat_history import ChatsHistory
@@ -71,7 +72,7 @@ class ArcanAgent:
         self.db = SQLDatabase.from_uri(os.environ.get("SQLALCHEMY_URL"))
         self.toolkit = SQLDatabaseToolkit(db=self.db, llm=self.llm)
         self.context = self.toolkit.get_context()
-        self.prompt = vortex_prompt.partial(**self.context)
+        self.prompt = arcan_prompt.partial(**self.context)
         self.sql_tools = self.toolkit.get_tools()
         self.working_directory = TemporaryDirectory()
         self.file_system_tools = FileManagementToolkit(
