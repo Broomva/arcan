@@ -10,10 +10,10 @@ import { Toaster } from 'react-hot-toast'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Next.js AI Chatbot',
-    template: `%s - Next.js AI Chatbot`
+    default: 'Arcan Spells Studio',
+    template: `%s - Arcan Spells Studio`
   },
-  description: 'An AI-powered chatbot template built with Next.js and Vercel.',
+  description: 'An AI-powered chatbot studio for creating and customizing AI agents',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' }

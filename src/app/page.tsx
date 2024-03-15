@@ -2,12 +2,14 @@
 
 import { GithubLoginButton } from "@/components/login-button";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+// import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Image from "next/image";
 import Link from "next/link";
 
 
-export function TypewriterEffectSmoothDemo() {
-  const words = [
+
+function Hero() {
+  const typewriter_words = [
     {
       text: "Build",
     },
@@ -27,7 +29,7 @@ export function TypewriterEffectSmoothDemo() {
       text: "with",
     },
     {
-      text: "Arcan AI.",
+      text: "Arcan.",
       className: "relative z-10 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-blue-600 text-center font-sans font-bold",
 
     },
@@ -43,7 +45,8 @@ export function TypewriterEffectSmoothDemo() {
           height={120}
         />
       </div>
-      <TypewriterEffectSmooth words={words} />
+      <TypewriterEffectSmooth words={typewriter_words} />
+      {/* <TextGenerateEffect words={'Build Context aware AI Apps with Arcan'} /> */}
       <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base h-[3rem]  ">
         AI Web3 tooling platform for decentralized customization and enhancement of AI agents
       </p>
@@ -86,7 +89,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <TypewriterEffectSmoothDemo />
+      <Hero />
 
     </main>
   );
