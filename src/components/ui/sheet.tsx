@@ -1,14 +1,15 @@
 'use client'
 
-import * as React from 'react'
 import * as SheetPrimitive from '@radix-ui/react-dialog'
+import * as React from 'react'
 
-import { cn } from '@/lib/utils'
 import { IconClose } from '@/components/ui/icons'
+import { cn } from '@/lib/utils'
 
 const Sheet = SheetPrimitive.Root
 
 const SheetTrigger = SheetPrimitive.Trigger
+
 
 const SheetClose = SheetPrimitive.Close
 
@@ -16,9 +17,8 @@ const SheetPortal = ({
   className,
   children,
   ...props
-}: SheetPrimitive.DialogPortalProps) => (
+}: SheetPrimitive.DialogPortalProps & { className?: string }) => (
   <SheetPrimitive.Portal
-    className={cn('fixed inset-0 z-50 flex', className)}
     {...props}
   >
     {children}
@@ -111,12 +111,7 @@ const SheetDescription = React.forwardRef<
 SheetDescription.displayName = SheetPrimitive.Description.displayName
 
 export {
-  Sheet,
-  SheetTrigger,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetFooter,
-  SheetTitle,
-  SheetDescription
+  Sheet, SheetClose,
+  SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger
 }
+
