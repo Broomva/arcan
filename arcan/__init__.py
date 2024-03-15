@@ -1,16 +1,6 @@
-
-from fastapi import Depends, FastAPI
-# from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from typer import Typer, echo
 
-# from arcan.api.session.auth import requires_auth
-
-
-
-# auth_scheme = HTTPBearer()
-api = FastAPI()
 cli = Typer()
-
 
 __version__ = "0.0.1"
 
@@ -30,19 +20,16 @@ def callback():
     """
 
 @cli.command()
-@api.get("/")
 def status():
     message = "Arcan is running"
     echo(message)
     return {"message": message}
 
 @cli.command()
-@api.get("/api/version")
 def version():
     message = f"Arcan version {get_arcan_version()} is installed"
     echo(message)
     return {"message": message}
-
 
 
 def url_text_scrapping_chain(query: str, url: str) -> tuple[str, list[str]]:
