@@ -10,13 +10,12 @@ from typing import Dict
 
 from fastapi.responses import StreamingResponse
 from langchain.agents import AgentExecutor, load_tools
-from langchain.agents.format_scratchpad.openai_tools import \
-    format_to_openai_tool_messages
-from langchain.agents.output_parsers.openai_tools import \
-    OpenAIToolsAgentOutputParser
+from langchain.agents.format_scratchpad.openai_tools import (
+    format_to_openai_tool_messages,
+)
+from langchain.agents.output_parsers.openai_tools import OpenAIToolsAgentOutputParser
 from langchain.sql_database import SQLDatabase
-from langchain_community.agent_toolkits import (FileManagementToolkit,
-                                                SQLDatabaseToolkit)
+from langchain_community.agent_toolkits import FileManagementToolkit, SQLDatabaseToolkit
 from langchain_core.messages import AIMessage, HumanMessage
 from sqlalchemy.dialects.postgresql import insert
 
