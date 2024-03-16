@@ -116,5 +116,5 @@ module.exports = {
     }
   },
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'), addVariablesForColors],
-  darkMode: ['class'],
+  // darkMode: ['class'],
 }

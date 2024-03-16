@@ -18,18 +18,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body
-        // className={cn(
-        //   'font-sans antialiased',
-        //   fontSans.variable,
-        //   fontMono.variable
-        // )}
-      >
+      <body className={inter.className}>
+        
+        
         <Providers attribute="class" defaultTheme="system" enableSystem>
+
         <Header />
-        <body className={inter.className}>{children}</body>
+        
+            <body className={inter.className}>{children}</body>
         </Providers>
+        
       </body>
     </html>
   )
 }
+

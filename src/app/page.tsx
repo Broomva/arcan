@@ -5,6 +5,7 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 // import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Image from "next/image";
 import Link from "next/link";
+import { useActiveAccount } from "thirdweb/react";
 
 
 
@@ -60,6 +61,8 @@ function Hero() {
 
 
 export default function Home() {
+  const activeAccount = useActiveAccount();
+  console.log(activeAccount);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">

@@ -1,8 +1,11 @@
+import { client } from '@/app/client'
+import { ThirdwebProvider } from '@/app/thirdweb'
 import Link from 'next/link'
 import * as React from 'react'
 
 import { auth } from '@/app/auth/auth'
 import { clearChats } from '@/app/spells_studio/actions'
+import { ConnectButton } from '@/app/thirdweb'
 import { ClearHistory } from '@/components/clear-history'
 import { GithubLoginButton } from '@/components/login-button'
 import { LogoutButton } from '@/components/logout-button'
@@ -13,6 +16,7 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { IconGitHub, IconSeparator } from '@/components/ui/icons'
+// import { ThirdwebConnect } from '@/components/ui/thirdweb-wallet'
 import { UserMenu } from '@/components/user-menu'
 import { cn } from '@/lib/utils'
 
@@ -140,6 +144,13 @@ export async function Header() {
           <IconGitHub />
           <span className="hidden ml-2 md:flex">GitHub</span>
         </a>
+        <div className="flex items-center justify-end space-x-2 h-2">
+          <ThirdwebProvider client={client}>
+            <ConnectButton />
+            {/* <ThirdwebConnect /> */}
+            </ThirdwebProvider>
+        </div>
+        
         {/* <a suppressHydrationWarning
           className={cn(buttonVariants({ variant: 'outline' }))}
         > 
