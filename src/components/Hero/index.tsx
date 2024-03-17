@@ -111,7 +111,7 @@ const Hero = () => {
 
                 {/* <div>
                   <p className="mb-4 text-center text-base font-medium text-white/60">
-                    Play is now available for all popular frameworks
+                   Arcan AI is now available for all popular frameworks
                   </p>
                   <div
                     className="wow fadeInUp flex items-center justify-center gap-4 text-center"

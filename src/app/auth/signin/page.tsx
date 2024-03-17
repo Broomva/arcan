@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Sign In | Play SaaS Starter Kit and Boilerplate for Next.js",
+    "Sign In | Arcan AI",
 };
 
 const SigninPage = () => {

@@ -8,7 +8,7 @@ const Features = () => {
       <div className="container">
         <SectionTitle
           subtitle="Features"
-          title="Main Features Of Play"
+          title="Main Features Of Arcan AI"
           paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
         />
 
