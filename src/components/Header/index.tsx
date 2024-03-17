@@ -68,14 +68,14 @@ const Header = () => {
                       alt="logo"
                       width={140}
                       height={30}
-                      className="header-logo w-full dark:hidden"
+                      className="header-logo max-w-[80px] h-auto dark:hidden"
                     />
                     <Image
                       src={`/images/logo/logo-white.svg`}
                       alt="logo"
                       width={140}
                       height={30}
-                      className="header-logo hidden w-full dark:block"
+                      className="header-logo hidden max-w-[80px] h-auto dark:block"
                     />
                   </>
                 ) : (
@@ -89,14 +89,14 @@ const Header = () => {
                       alt="logo"
                       width={140}
                       height={30}
-                      className="header-logo w-full dark:hidden"
+                      className="header-logo max-w-[80px] h-auto dark:hidden"
                     />
                     <Image
                       src={"/images/logo/logo-white.svg"}
                       alt="logo"
                       width={140}
                       height={30}
-                      className="header-logo hidden w-full dark:block"
+                      className="header-logo hidden max-w-[80px] h-auto dark:block"
                     />
                   </>
                 )}

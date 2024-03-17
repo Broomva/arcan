@@ -15,7 +15,7 @@ Check out the live demo at [arcanai.tech](https://arcanai.tech/).
 
 <p align="center">
   <a href="https://arcanai.tech">
-    <img src="public/logo_dark.png" height="200">
+    <img src="public/images/logo/logo-white.svg" height="200">
     <h3 align="center"></h3>
   </a>
 </p>
