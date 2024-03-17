@@ -1,11 +1,11 @@
 import { auth } from '@/app/auth/auth'
 import '@/app/globals.css'
 import { Providers } from '@/components/providers'
-import { fontMono, fontSans } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
 import { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import { redirect } from 'next/navigation'
 import { Toaster } from 'react-hot-toast'
+const inter = Inter({ subsets: ['latin'] })
 // import { TailwindIndicator } from '@/components/tailwind-indicator'
 
 export const metadata: Metadata = {
@@ -14,15 +14,15 @@ export const metadata: Metadata = {
     template: `%s - Arcan Spells Studio`
   },
   description: 'An AI-powered chatbot studio for creating and customizing AI agents',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' }
-  ],
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/arcan_logo.png',
-    apple: '/arcan_logo.png'
-  }
+  // themeColor: [
+  //   { media: '(prefers-color-scheme: light)', color: 'white' },
+  //   { media: '(prefers-color-scheme: dark)', color: 'black' }
+  // ],
+  // icons: {
+  //   icon: '/favicon.ico',
+  //   shortcut: '/logo_light.png',
+  //   apple: '/logo_light.png'
+  // }
 }
 
 interface RootLayoutProps {
@@ -39,11 +39,12 @@ export default async function ChatLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn(
-          'font-sans antialiased',
-          fontSans.variable,
-          fontMono.variable
-        )}
+        // className={cn(
+        //   'font-sans antialiased',
+        //   fontSans.variable,
+        //   fontMono.variable
+        // )}
+        className={inter.className}
       >
         <Toaster />
         <Providers attribute="class" defaultTheme="system" enableSystem>

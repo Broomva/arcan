@@ -12,7 +12,6 @@ import { LogoutButton } from '@/components/logout-button'
 import { Sidebar } from '@/components/sidebar'
 import { SidebarFooter } from '@/components/sidebar-footer'
 import { SidebarList } from '@/components/sidebar-list'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { IconGitHub, IconSeparator } from '@/components/ui/icons'
@@ -66,7 +65,7 @@ export async function Header() {
               <SidebarList userId={session?.user?.id} />
             </React.Suspense>
             <SidebarFooter>
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
               <LogoutButton />
               <ClearHistory clearChats={clearChats} />
             </SidebarFooter>
@@ -109,7 +108,7 @@ export async function Header() {
             <div className="flex-1 overflow-auto"/>
             
             <SidebarFooter>
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
               <GithubLoginButton />
             </SidebarFooter>
             

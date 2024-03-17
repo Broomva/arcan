@@ -1,1 +1,1 @@
-from arcan.api import app, hello_world
+from arcan.api import app
