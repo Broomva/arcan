@@ -15,7 +15,7 @@ Check out the live demo at [arcanai.tech](https://arcanai.tech/).
 
 <p align="center">
   <a href="https://arcanai.tech">
-    <img src="public/images/logo/logo-white.svg" height="200">
+    <img src="public/arcan_logo.svg" height="200">
     <h3 align="center"></h3>
   </a>
 </p>
@@ -26,7 +26,7 @@ Check out the live demo at [arcanai.tech](https://arcanai.tech/).
 
 ## Built With
 
-- [Next.js](https://nextjs.org/) - The web framework used
+<!-- - [Next.js](https://nextjs.org/) - The web framework used -->
 - [Python](https://www.python.org/) - Backend programming language
 - [Rust](https://www.rust-lang.org/) - Smart contract programming language
 
@@ -34,7 +34,7 @@ Check out the live demo at [arcanai.tech](https://arcanai.tech/).
 
 ### Prerequisites
 
-- [Next.js](https://nextjs.org/)
+<!-- - [Next.js](https://nextjs.org/) -->
 - [Python](https://www.python.org/)
 - [Rust](https://www.rust-lang.org/)
 - Access to a blockchain test network (e.g., Ethereum's or Solana's Testnet)
@@ -54,7 +54,7 @@ Check out the live demo at [arcanai.tech](https://arcanai.tech/).
     conda activate arcan
     pip install -r requirements.txt
     python setup.py install
-
+<!-- 
 ## Building the Next.js App
 
 To clone the repository and create the Next.js app, you can use the following commands:
@@ -71,7 +71,7 @@ After that, you can run the development server:
     # or
     make rerun
 
-You can then view your application by opening [http://localhost:3000](http://localhost:3000) with your browser.
+You can then view your application by opening [http://localhost:3000](http://localhost:3000) with your browser. -->
 
 ## Contributing
 
@@ -94,7 +94,7 @@ Interested in Arcan or looking to collaborate? Visit [broomva.tech](https://broo
 ## License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details.
-
+<!-- 
 ## Subscription Model
 
 Arcan operates on a freemium/subscription model. While the open-source code can be deployed in your own environment free of charge, subscription tiers for access to premium features such as enhanced support and additional tools. Visit our [Pricing Page](https://arcanapp.io/pricing) for more details.
@@ -112,7 +112,7 @@ To deploy Arcan on your own, you can clone & deploy it with one click:
 To learn more about the technologies we use, check out:
 
 - [Next.js Documentation](https://nextjs.org/docs)
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/) -->
 
 <!-- ## Attribution
 
